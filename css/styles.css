@@ -9,6 +9,21 @@ html {
     font-size: 62.5%;
 }
 
+body {
+    box-sizing: border-box;
+    position: relative;
+    line-height: 1.5;
+    font-family: sans-serif;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: 'Source Sans Pro',sans-serif;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
 ul {
    list-style: none;
 }
@@ -44,6 +59,10 @@ a {
 }
 
 #logo-img-cont {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50px;
+    overflow: hidden;
     margin-right: 1.5rem;
 }
 
@@ -81,12 +100,35 @@ a {
     opacity: 1;
 }
 
+#burguer-cont {
+    display: none;
+    width: 3rem;
+    padding: 2.2rem 0;
+}
+
+.burguer-menu,
+.burguer-menu-close {
+    width: 100%;
+}
+
+.display-none {
+    display: none;
+}
+
 #botton-header {
-    background: #1877F2;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    z-index: 900;
+    background: linear-gradient(to top,rgba(20, 153, 160, 0.9),rgba(20, 153, 160, 0.6)),url(/daac885…/c157c/assets/svg/common-bg.svg);
+    box-shadow: 0 10px 100px rgba(0,0,0,.1);
     padding: 1rem;
     border: 1px solid #ccc;
     padding: 1rem;
     text-align: center;
+    animation-name: botton-header-show;
+    animation-duration: 1s;
 }
 
 #botton-header h1 {
@@ -94,12 +136,14 @@ a {
 }
 
 .home {
-    background: linear-gradient(to right,rgba(245,245,245,.8),rgba(245,245,245,.8)),url(/daac885…/c157c/assets/svg/common-bg.svg);
+    background: linear-gradient(to top,rgba(245,245,245,.8),rgba(245,245,245,.8)),url(/daac885…/c157c/assets/svg/common-bg.svg);
     background-position: center;
     height: 100vh;
     min-height: 80rem;
-    max-height: 120rem;
+    max-height: 100rem;
     position: relative;
+    animation-name: home-show;
+    animation-duration: 1s;
 }
 
 #home-content {
@@ -125,12 +169,67 @@ a {
     max-width: 80rem;
 }
 
-#home-info .info {
+#home-btn {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.btn {
+    padding: 1.5rem 8rem;
+    font-size: 2rem;
+    background: linear-gradient(to top,rgba(20, 153, 160, 0.902),rgba(20, 153, 160, 0.6)),url(/daac885…/c157c/assets/svg/common-bg.svg);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    font-weight: 700;
+    border-radius: 2rem;
+    box-shadow: 0 5px 15px 0 rgba(0, 116, 118,.4);
+    transition: transform .3s;
+}
+
+.info {
     color: #333;
     font-size: 2.2rem;
     text-align: center;
     width: 100%;
     line-height: 1.6;
+}
+
+#home-mouse-scroll-cont {
+    position: absolute;
+    bottom: 30%;
+    right: 4%;
+    transform: translateX(-50%);
+}
+
+#mouse {
+    width: 55px;
+    height: 75px;
+    border: 2px solid #333;
+    border-radius: 60px;
+    overflow: hidden;
+}
+
+#mouse::before {
+    content: '';
+    width: 7px;
+    height: 13px;
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    border-radius: 50%;
+    opacity: 1;
+    animation-name: mouse-scroll;
+    animation-duration: 1.3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes mouse-scroll {
+    0%   {opacity: 1;top: 7px;}
+    100% {opacity: 0;top: 60px;}
 }
 
 .projects, .about {
@@ -142,7 +241,7 @@ a {
 .projects {
     position: relative;
     animation-name: projects-show;
-    animation-duration: 1s;
+    animation-duration: 1.4s;
 }
 
 .about {
@@ -151,18 +250,24 @@ a {
     animation-duration: 1.25s;
 }
 
-@keyframes header-show {
-    0%   {left:0px; top:-200px;}
+@keyframes botton-header-show {
+    0%   {left:-600px; top:80px;}
+    100% {left:0px; top:80px;}
+}
+
+
+@keyframes home-show {
+    0%   {left:0px; top:-300px;}
     100% {left:0px; top:0px;}
 }
 
 @keyframes projects-show {
-    0%   {left:0px; top:-200px;}
+    0%   {left:0px; top:-400px;}
     100% {left:0px; top:0px;}
 }
 
 @keyframes about-show {
-    0%   {left:0px; top:-500px;}
+    0%   {left:0px; top:-700px;}
     100% {left:0px; top:0px;}
 }
 
@@ -191,5 +296,35 @@ a {
     font-weight: bold;
 }
 
+@media only screen and (max-width: 1200px) {
+    html {
+        font-size: 50%;
+    }
+}
 
+@media only screen and (max-width: 900px) {
+    html {
+        font-size: 45%;
+    }
+    #header-content {
+        padding: 0 2rem;
+    }
+    #logo-img-cont {
+        width: 4.5rem;
+        height: 4.5rem;
+        margin-right: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .home {
+        height: unset;
+        min-height: unset;
+    }
+    #logo-img-cont {
+        width: 4rem;
+        height: 4rem;
+        margin-right: 1.2rem;
+    }
+}
 
