@@ -7,6 +7,7 @@
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -39,7 +40,6 @@ a {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: #fff;
     box-shadow: 0 10px 100px rgba(0,0,0,.1)
 }
 #header-content {
@@ -47,14 +47,13 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
+    background: #f8f8f8;
 }
 
 #logo-container {
     display: flex;
     cursor: pointer;
     align-items: center;
-    color: #171717;
     transition: color 0.3s;
 }
 
@@ -69,12 +68,11 @@ a {
 #logo-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
     display: block;
 }
 
 #logo-sub {
+    color: #333;
     font-size: 1.4rem;
     text-transform: uppercase;
     font-weight: 700;
@@ -89,7 +87,7 @@ a {
     padding: 2.2rem 3rem;
     display: inline-block;
     font-size: 1.4rem;
-    color: #171717;
+    color: #333;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
@@ -117,14 +115,12 @@ a {
 
 #botton-header {
     position: absolute;
-    top: 80px;
+    top: 85px;
     left: 0;
     width: 100%;
     z-index: 900;
-    background: linear-gradient(to top,rgba(20, 153, 160, 0.9),rgba(20, 153, 160, 0.6)),url(/daac885…/c157c/assets/svg/common-bg.svg);
+    background: linear-gradient(to top,rgba(231, 108, 106, 0.7),rgba(204, 55, 51, 0.9)),url(/daac885…/c157c/assets/svg/common-bg.svg);
     box-shadow: 0 10px 100px rgba(0,0,0,.1);
-    padding: 1rem;
-    border: 1px solid #ccc;
     padding: 1rem;
     text-align: center;
     animation-name: botton-header-show;
@@ -136,11 +132,11 @@ a {
 }
 
 .home {
-    background: linear-gradient(to top,rgba(245,245,245,.8),rgba(245,245,245,.8)),url(/daac885…/c157c/assets/svg/common-bg.svg);
+    background: linear-gradient(to right,rgba(245,245,245,.8),rgba(245,245,245,.8)),url(/daac885…/c157c/assets/svg/common-bg.svg);
     background-position: center;
     height: 100vh;
     min-height: 80rem;
-    max-height: 100rem;
+    max-height: 120rem;
     position: relative;
     animation-name: home-show;
     animation-duration: 1s;
@@ -160,32 +156,13 @@ a {
     text-transform: uppercase;
     letter-spacing: 3px;
     text-align: center;
-    color: #111;
+    color: #333;
     font-weight: 800;
 }
 
 #home-info {
     margin: 3rem auto 0 auto;
     max-width: 80rem;
-}
-
-#home-btn {
-    margin-top: 5rem;
-    text-align: center;
-}
-
-.btn {
-    padding: 1.5rem 8rem;
-    font-size: 2rem;
-    background: linear-gradient(to top,rgba(20, 153, 160, 0.902),rgba(20, 153, 160, 0.6)),url(/daac885…/c157c/assets/svg/common-bg.svg);
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: inline-block;
-    font-weight: 700;
-    border-radius: 2rem;
-    box-shadow: 0 5px 15px 0 rgba(0, 116, 118,.4);
-    transition: transform .3s;
 }
 
 .info {
@@ -196,16 +173,35 @@ a {
     line-height: 1.6;
 }
 
+#home-btn {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.btn {
+    padding: 1.5rem 8rem;
+    font-size: 2rem;
+    background: linear-gradient(to top,rgba(231, 108, 106, 0.7),rgba(204, 55, 51, 0.9)),url(/daac885…/c157c/assets/svg/common-bg.svg);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    font-weight: 700;
+    border-radius: 2rem;
+    box-shadow: 0 5px 15px 0 rgba(0, 116, 118,.4);
+    transition: transform .3s;
+}
+
 #home-mouse-scroll-cont {
     position: absolute;
-    bottom: 30%;
-    right: 4%;
+    bottom: 5%;
+    left: 50%;
     transform: translateX(-50%);
 }
 
 #mouse {
-    width: 55px;
-    height: 75px;
+    width: 80px;
+    height: 110px;
     border: 2px solid #333;
     border-radius: 60px;
     overflow: hidden;
@@ -213,10 +209,10 @@ a {
 
 #mouse::before {
     content: '';
-    width: 7px;
-    height: 13px;
+    width: 9px;
+    height: 18px;
     position: absolute;
-    top: 7px;
+    top: 15px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #333;
@@ -228,8 +224,8 @@ a {
 }
 
 @keyframes mouse-scroll {
-    0%   {opacity: 1;top: 7px;}
-    100% {opacity: 0;top: 60px;}
+    0%   {opacity: 1;top: 15px;}
+    100% {opacity: 0;top: 70px;}
 }
 
 .projects, .about {
@@ -245,6 +241,8 @@ a {
 }
 
 .about {
+    background: #f8f8f8;
+    color: #333;
     position: relative;
     animation-name: about-show;
     animation-duration: 1.25s;
@@ -271,60 +269,84 @@ a {
     100% {left:0px; top:0px;}
 }
 
-.projects h2, .about h2 {
-    font-size: 2.6rem;
-    margin: 10px auto;
-}
-
-.projects ul {
-    list-style: none;
-    padding: 0;
-}
-
-.projects li {
-    margin-bottom: 20px;
-}
-
-.projects a {
-    font-size: 1.8rem;
-    text-decoration: none;
-    color: #fff;
-}
-
-.projects a:hover {
-    color: greenyellow;
-    font-weight: bold;
-}
 
 @media only screen and (max-width: 1200px) {
     html {
-        font-size: 50%;
+        font-size: 59%;
+    }
+    #botton-header {
+        top: 80px;
     }
 }
 
+
 @media only screen and (max-width: 900px) {
     html {
-        font-size: 45%;
+        font-size: 56%;
+    }
+    #botton-header {
+        top: 73.5px;
     }
     #header-content {
-        padding: 0 2rem;
+        padding: 0px 2rem;
     }
     #logo-img-cont {
         width: 4.5rem;
         height: 4.5rem;
         margin-right: 1.2rem;
     }
+    .header-link {
+        padding: 3rem 1.8rem;
+        font-size: 1.5rem;
+    }
+    #mouse {
+        width: 60px;
+        height: 90px;
+        border: 2px solid #333;
+        border-radius: 60px;
+        overflow: hidden;
+    }
+    #mouse::before {
+        width: 8px;
+        height: 16px;
+    }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 720px) {
+    #header-content {
+        padding: 0 2rem;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    html {
+        font-size: 52.5%;
+    }
+    #navbar {
+        display: none;
+    }
+    #botton-header {
+        top: 65.5px;
+    }
+    #burguer-cont {
+        display: block;
+    }
     .home {
         height: unset;
         min-height: unset;
     }
-    #logo-img-cont {
-        width: 4rem;
-        height: 4rem;
-        margin-right: 1.2rem;
+    #home-content {
+        padding: 20rem 0 13rem 0;
+        margin: auto;
+        position: static;
+        transform: translate(0,0);
+    }
+    #home-title {
+        font-size: 4rem;
+    }
+
+    #home-mouse-scroll-cont {
+        display: none;
     }
 }
 
