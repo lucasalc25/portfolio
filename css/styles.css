@@ -11,6 +11,7 @@ html {
 }
 
 body {
+    background: #f8f8f8;
     box-sizing: border-box;
     position: relative;
     line-height: 1.5;
@@ -73,10 +74,11 @@ a {
 
 #logo-sub {
     color: #333;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 1px;
+    cursor: pointer;
 }
 
 #navbar {
@@ -86,7 +88,7 @@ a {
 .header-link {
     padding: 2.2rem 3rem;
     display: inline-block;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: #333;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -94,8 +96,9 @@ a {
     transition: color .3s;
 }
 
-#navbar li a:hover {
-    opacity: 1;
+#navbar li a:hover,
+#logo-sub:hover {
+    color: #D14C49; 
 }
 
 #burguer-cont {
@@ -120,11 +123,11 @@ a {
     width: 100%;
     z-index: 900;
     background: linear-gradient(to top,rgba(231, 108, 106, 0.7),rgba(204, 55, 51, 0.9)),url(/daac885…/c157c/assets/svg/common-bg.svg);
-    box-shadow: 0 10px 100px rgba(0,0,0,.1);
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,.2);
     padding: 1rem;
     text-align: center;
     animation-name: botton-header-show;
-    animation-duration: 1s;
+    animation-duration: .5s;
 }
 
 #botton-header h1 {
@@ -231,21 +234,77 @@ a {
 .projects, .about {
     text-align: center;
     margin-top: 5px;
-    transition: 0.5s;
-}
-
-.projects {
-    position: relative;
-    animation-name: projects-show;
-    animation-duration: 1.4s;
+    transition: 0.9s;
 }
 
 .about {
     background: #f8f8f8;
     color: #333;
     position: relative;
-    animation-name: about-show;
-    animation-duration: 1.25s;
+}
+
+.about-container {
+    max-width: 120rem;
+    margin: auto;
+    margin-bottom: 8rem;
+    width: 92%;
+}
+
+.about-title {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 3.5rem;
+    color: #111;
+}
+
+.about-title::after {
+    content: '';
+    position: absolute;
+    top: calc(6% + 1.5rem);
+    height: 5px;
+    width: 10rem;
+    background: #D14C49;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+.about-subtitle {
+    text-align: center;
+    color: #555;
+    font-size: 2rem;
+    font-weight: 500;
+    max-width: 80rem;
+    margin: auto;
+    margin-bottom: 4rem;
+    line-height: 1.6;
+}
+
+.about-cont-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+}
+
+.btn-average {
+    padding: 1.5rem 5rem;
+    font-size: 1.6rem;
+}
+
+.skills {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+
+.skill {
+    width: 25%;
+    padding: 1rem;
 }
 
 @keyframes botton-header-show {
@@ -258,17 +317,6 @@ a {
     0%   {left:0px; top:-300px;}
     100% {left:0px; top:0px;}
 }
-
-@keyframes projects-show {
-    0%   {left:0px; top:-400px;}
-    100% {left:0px; top:0px;}
-}
-
-@keyframes about-show {
-    0%   {left:0px; top:-700px;}
-    100% {left:0px; top:0px;}
-}
-
 
 @media only screen and (max-width: 1200px) {
     html {
@@ -310,11 +358,29 @@ a {
         width: 8px;
         height: 16px;
     }
+    .skills {
+        gap: 1rem;
+    }
+    .skill {
+        width: 30%;
+    }
 }
 
 @media only screen and (max-width: 720px) {
     #header-content {
         padding: 0 2rem;
+    }
+    .about-title::after {
+        top: calc(5% + 1.5rem);
+    }
+    .skills {
+        gap: 1rem;
+    }
+    .skill {
+        width: 40%;
+    }
+    #logo-git {
+        width: 75%;
     }
 }
 
@@ -347,6 +413,15 @@ a {
 
     #home-mouse-scroll-cont {
         display: none;
+    }
+    .about-title::after {
+        top: calc(4.5% + 1.5rem);
+    }
+    .skills {
+        gap: 2rem;
+    }
+    #logo-git {
+        width: 100%;
     }
 }
 
