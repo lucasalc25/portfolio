@@ -11,7 +11,7 @@
         <div id="header-content">
             <div id="logo-container">
                 <div id="logo-img-cont">
-                    <img src="./img/foto-perfil.jpg" alt="Logo" class="logo-img">
+                    <img src="./img/foto-perfil.jpg" alt="Logo" id="logo-img">
                 </div>
                 <span id="logo-sub">
                     Lucas Alcântara
@@ -52,9 +52,9 @@
 
     </section>
 
-    <section class="about">
+    <section class="about second-pad">
         <div class="about-container">
-            <h2 class="about-title">Sobre</h2>
+            <h2 class="about-cont-title">Sobre</h2>
             <p class="description">Me chamo Lucas Alcântara, tenho 27 anos e estou concluindo este ano uma graduação em Ciência da Computação e cursos especializados em Desenvolvimento Web voltado para o Front-End. Estou muito empolgado e aberto a oportunidades de trabalho onde eu possa contribuir, aprender e crescer. Se você tiver uma oportunidade que corresponda às minhas competências, entre em contato por favor.</p>
             <a class="btn btn-average" href="#">Contato</a>
         </div>
@@ -75,27 +75,101 @@
 
     <section class="projects second-pad">
         <div class="projects-container">
-            <h3 class="projects-title">Projetos</h3>
+            <h2 class="project-cont-title">Projetos</h2>
             <p class="description">Aqui você encontrará alguns dos projetos pessoais e acadêmicos que criei. Espero que goste!</p>
             <div class="projects">
+               
                 <div class="projects-row">
-                    <div class="projects-img-cont"><img src="./img/projects.jpg" alt="Projeto 1"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Blog</h3>
-                        <p class="project-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum quos, id earum, nemo eos, facere quibusdam sed a distinctio sequi quaerat ad quae iste rerum autem nostrum consectetur officiis eveniet.</p>
-                        <a class="btn btn-average" href="./blog/blog.html">Link do Projeto</a>
-                    </div>
-                </div>
-                <div class="projects-row">
+                    <div class="projects-img-cont"><img src="./img/tabuada.PNG" alt="Projeto 1"></div>
                     <div class="project-content">
                         <h3 class="project-title">Tabuada</h3>
                         <p class="project-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum quos, id earum, nemo eos, facere quibusdam sed a distinctio sequi quaerat ad quae iste rerum autem nostrum consectetur officiis eveniet.</p>
+                        <a class="btn btn-average" href="./tabuada/tabuada.html" target="_blank">Link do Projeto</a>
                     </div>
-                    <div class="projects-img-cont"><img src="./img/projects.jpg" alt="Projeto 1"></div>
+                </div>
+
+                <div class="projects-row">
+                    <div class="projects-img-cont"><img src="./img/gerador-qr-code.png" alt="Projeto 2"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Gerador de QR Code</h3>
+                        <p class="project-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum quos, id earum, nemo eos, facere quibusdam sed a distinctio sequi quaerat ad quae iste rerum autem nostrum consectetur officiis eveniet.</p>
+                        <a class="btn btn-average" href="./gerador-qr-code/geradorqrcode.html" target="_blank">Link do Projeto</a>
+                    </div>
+                </div>
+
+                <div class="projects-row">
+                    <div class="projects-img-cont"><img src="./img/iphone-page.png" alt="Projeto 3"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Clone da página do iPhone</h3>
+                        <p class="project-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum quos, id earum, nemo eos, facere quibusdam sed a distinctio sequi quaerat ad quae iste rerum autem nostrum consectetur officiis eveniet.</p>
+                        <a class="btn btn-average" href="./iphone-page/iphone-page.html" target="_blank">Link do Projeto</a>
+                    </div>
+                </div>
+
+                <div class="projects-row">
+                    <div class="projects-img-cont"><img src="./img/pokedex.png" alt="Projeto 4"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Pokedex</h3>
+                        <p class="project-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum quos, id earum, nemo eos, facere quibusdam sed a distinctio sequi quaerat ad quae iste rerum autem nostrum consectetur officiis eveniet.</p>
+                        <a class="btn btn-average" href="./pokedex/pokedex.html" target="_blank">Link do Projeto</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
+    <section class="contact second-pad dynamic-bg">
+        <div class="contact-container">
+          <h2 class="contact-cont-title">Contato</h2>
+          <p class="description">Fique à vontade para entrar em contato comigo enviando o formulário abaixo. Entrarei em contato com você o mais breve possível</p>
+          <div class="contact-form-container">
+            <form action='#' class='contact-form' method='post'><input type='hidden' name='form-name' value='form 1' />
+              <div class="contact-form-field">
+                <label class="contact-form-label" for="name">Nome</label>
+                <input required placeholder="Digite seu nome..." type="text" class="contact-form-input" name="name"
+                  id="name" />
+              </div>
+              <div class="contact-form-field">
+                <label class="contact-form-label" for="email">Email</label>
+                <input required placeholder="Digite seu email..." type="email" class="contact-form-input" name="email"
+                  id="email" />
+              </div>
+              <div class="contact-form-field">
+                <label class="contact-form-label" for="message">Mensagem</label>
+                <textarea required cols="30" rows="10" class="contact-form-input" placeholder="Digite sua mensagem..."
+                  name="message" id="message"></textarea>
+              </div>
+              <button type="submit" class="btn contact-btn">
+                Enviar
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">
+        <ul class="social-icon">
+            <li class="social-icon__item"><a class="social-icon__link" href="https://github.com/lucasalc25" target="_blank">
+                <ion-icon name="logo-github"></ion-icon>
+              </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="https://www.linkedin.com/in/lucas-alc%C3%A2ntara-holanda-673114213/" target="_blank">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/lucasalc25/" target="_blank">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a></li>
+          </ul>
+          <ul class="menu">
+            <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+            <li class="menu__item"><a class="menu__link" href="#Sobre">Sobre</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Projetos</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Contato</a></li>
+      
+          </ul>
+          <p>&copy;2024 Lucas Alcântara | Todos os direitos reservados</p>
+        </footer>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
