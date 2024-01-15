@@ -7,7 +7,7 @@
 }
 
 body {
-    background-image: url(/to-do-avançado/img/bg.jpg);
+    background-image: url(./to-do-avançado/img/bg.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;
