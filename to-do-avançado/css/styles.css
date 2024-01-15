@@ -51,7 +51,7 @@ select {
 }
 
 /* HEADER */
-.task-container header {
+.task-container h1 {
     text-align: center;
     padding: 0 1rem 1rem;
 }
@@ -71,8 +71,7 @@ h4 {
 
 #cancel-edit-btn {
     display: block;
-    margin: 1rem 0;
-    border-bottom: 1px solid #ccc;
+    margin: 1rem 0 0;
 }
 
 #task-form, #edit-form {
@@ -81,6 +80,7 @@ h4 {
 
 /* Toolbar */
 #toolbar {
+    width: 100%;
     padding: 1rem;
     display: flex;
 }
