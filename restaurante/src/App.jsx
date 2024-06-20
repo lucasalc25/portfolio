@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <h1>Restaurante</h1>
-      <img src={Restaurante} alt="" className="capa"/>
+      <img src={Restaurante} alt="Restaurante" className="capa"/>
       <Navegacao atualizarPagina={atualizarPagina}/>
       <div className="menu">
         {
