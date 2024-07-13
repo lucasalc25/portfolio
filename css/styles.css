@@ -364,7 +364,7 @@ button {
 
 .description {
     display: block;
-    text-align: center;
+    text-align: justify;
     color: #555;
     font-size: 2rem;
     font-weight: 500;
@@ -456,6 +456,7 @@ button {
 
 .project-description {
     font-size: 1.8rem;
+    text-align: justify;
     color: #666;
     max-width: 60rem;
     line-height: 1.7;
