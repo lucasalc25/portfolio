@@ -19,7 +19,7 @@ class Home extends Phaser.Scene {
 
     create() {
         this.showScreen();
-
+        
         this.bgImage = this.add.tileSprite(0, 0, this.game.canvas.width, this.game.canvas.height, 'bgMenu').setOrigin(0).setDepth(1);
 
         this.resizeBackground.bind(this)(this.bgImage);

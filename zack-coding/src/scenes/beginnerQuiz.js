@@ -4,46 +4,48 @@ class BeginnerQuiz extends Phaser.Scene {
         this.phases = [
             {
                 phase: 1,
+                topic: "Variáveis",
                 title: "Fase 1: Declarar duas variáveis do tipo inteiro", 
-                tip: "Variáveis armazenam dados, que podem ser números, caracteres, entre outros.",
+                information: "Variáveis armazenam dados, que podem ser números, caracteres, entre outros.",
                 code: [
                     "var",
                     "num1, num2: inteiro",
                     "inicio",
                     "fim"
                 ],
-                hints: {
-                    "var": "Dica: O comando 'var' é usado para declarar variáveis.",
-                    "num1, num2: inteiro": "Dica: Após declarar 'var', você deve especificar as variáveis e seus tipos.",
-                    "inicio": "Dica: Use 'inicio' para marcar o início do bloco de código.",
-                    "fim": "Dica: Use 'fim' para marcar o fim do bloco de código."
+                tips: {
+                    "var": "Dica: Primeiro declare o campo das variáveis",
+                    "num1, num2: inteiro": "Dica: Você deve especificar as variáveis e seus tipos.",
+                    "inicio": "Dica: Você deve marcar o início do bloco de código.",
+                    "fim": "Dica: Você deve marcar o fim do bloco de código."
                 }
             },
             {
                 phase: 2,
-                title: "Fase 2: Ler um número inteiro e mostrá-lo na tela", 
-                tip: "O comando 'leia' recebe um dado informado pelo usuário e o atribui à uma variável. Já o 'escreva', mostra este dado na tela.",
+                topic: "Entrada e saída de dados",
+                title: "Fase 2: Ler um número inteiro", 
+                information: "O comando 'leia' recebe um dado informado pelo usuário e o atribui à uma variável.",
                 code: [
                     "var",
                     "num: inteiro",
                     "inicio",
                     "leia(num)",
-                    "escreva(num)",
                     "fim"
                 ],
-                hints: {
-                    "var": "Dica: O comando 'var' é usado para declarar variáveis.",
-                    "num: inteiro": "Dica: Após declarar 'var', você deve especificar a variável e seu tipo.",
-                    "inicio": "Dica: Use 'inicio' para marcar o início do bloco de código.",
-                    "leia(num)": "Dica: Use 'leia' para receber um valor do usuário e atribuí-lo à variável 'num'.",
-                    "escreva(num)": "Dica: Use 'escreva' para mostrar o valor da variável 'num' na tela.",
-                    "fim": "Dica: Use 'fim' para marcar o fim do bloco de código."
+                tips: {
+                    "var": "Dica: Primeiro declare o campo das variáveis",
+                    "num: inteiro": "Dica: Você deve especificar a variável e seu tipo.",
+                    "inicio": "Dica: Você deve marcar o início do bloco de código.",
+                    "leia(num)": "Dica: Você deve receber um valor do usuário para atribuí-lo à respectiva variável",
+                    "escreva(num)": "Dica: Você deve mostrar o valor da variável 'num' na tela.",
+                    "fim": "Dica: Você deve marcar o fim do bloco de código."
                 }
             },
             {
                 phase: 3,
+                topic: "Operadores",
                 title: "Fase 3: Ler dois números e exibir a soma entre eles", 
-                tip: "O operador '<-' atribui um dado à uma variável",
+                information: "O operador '<-' atribui um dado à uma variável",
                 code: [
                     "var",
                     "num1, num2, soma: inteiro",
@@ -54,13 +56,13 @@ class BeginnerQuiz extends Phaser.Scene {
                     "escreva('A soma dos números é: ', soma)",
                     "fim"
                 ],
-                hints: {
-                    "var": "Dica: O comando 'var' é usado para declarar variáveis.",
-                    "num1, num2, soma: inteiro": "Dica: Após declarar 'var', você deve especificar as variáveis e seus tipos.",
+                tips: {
+                    "var": "Dica: Primeiro declare o campo das variáveis",
+                    "num1, num2, soma: inteiro": "Dica: Você deve especificar as variáveis e seus tipos.",
                     "inicio": "Dica: Use 'inicio' para marcar o início do bloco de código.",
-                    "leia(num1)": "Dica: Use 'leia' para receber um valor do usuário e atribuí-lo à variável 'num1'.",
-                    "leia(num2)": "Dica: Use 'leia' para receber um valor do usuário e atribuí-lo à variável 'num2'.",
-                    "soma <- num1 + num2": "Dica: Use '<-' para atribuir o resultado da soma de 'num1' e 'num2' à variável 'soma'.",
+                    "leia(num1)": "Dica: Use 'leia' para receber o primeiro número do usuário",
+                    "leia(num2)": "Dica: Use 'leia' para receber o segundo número do usuário",
+                    "soma <- num1 + num2": "Dica: Use '<-' para atribuir o resultado da soma à sua respectiva variável.",
                     "escreva('A soma dos números é: ', soma)": "Dica: Use 'escreva' para mostrar o valor da variável 'soma' na tela junto com uma mensagem.",
                     "fim": "Dica: Use 'fim' para marcar o fim do bloco de código."
                 }
@@ -68,7 +70,7 @@ class BeginnerQuiz extends Phaser.Scene {
             /*{
                 phase: 4,
                 title: "Fase 4: Receber o peso e altura de uma pessoa e então calcular e exibir o seu IMC.", 
-                tip: "IMC é o peso dividido pela altura ao quadrado.",
+                information: "IMC é o peso dividido pela altura ao quadrado.",
                 code: [
                     "var",
                     "peso, altura, imc: real",
@@ -83,7 +85,7 @@ class BeginnerQuiz extends Phaser.Scene {
             {
                 phase: 5,
                 title: "Fase 5: Ler dois números inteiros e indicar qual deles é o maior",
-                tip: "A estrutura condicional 'se-entao' pode comparar dados e executar comandos apenas se a comparação for atendida. Após todas estas comparações é que a estrutura chega ao fim.",
+                information: "A estrutura condicional 'se-entao' pode comparar dados e executar comandos apenas se a comparação for atendida. Após todas estas comparações é que a estrutura chega ao fim.",
                 code: [
                     "var",
                     "num1, num2: inteiro",
@@ -101,7 +103,7 @@ class BeginnerQuiz extends Phaser.Scene {
             {
                 phase: 6,
                 title: "Fase 6: Ler um número inteiro e mostrar se ele é par ou ímpar", 
-                tip: "Use o operador '%' e a estrutura 'se-entao' para determinar se o número é divisível por 2",
+                information: "Use o operador '%' e a estrutura 'se-entao' para determinar se o número é divisível por 2",
                 code: [
                     "var",
                     "num: inteiro",
@@ -118,7 +120,7 @@ class BeginnerQuiz extends Phaser.Scene {
             {
                 phase: 7,
                 title: "Fase 7: Receber um número inteiro e exibir se é positivo, negativo ou zero.", 
-                tip: "O comando 'senao se' é executado apenas se a comparação anterior não foi atendida e se a sua própria for atendida",
+                information: "O comando 'senao se' é executado apenas se a comparação anterior não foi atendida e se a sua própria for atendida",
                 code: [
                     "var",
                     "num: inteiro",
@@ -137,7 +139,7 @@ class BeginnerQuiz extends Phaser.Scene {
             {
                 phase: 8,
                 title: "Fase 8: Ler 2 números reais e uma operação para ser feita entre eles", 
-                tip: "A estrutura de seleção 'escolha-caso' realiza a operação escolhida pelo usuário",
+                information: "A estrutura de seleção 'escolha-caso' realiza a operação escolhida pelo usuário",
                 code: [
                     "var",
                     "num1, num2, resultado: real",
@@ -166,12 +168,16 @@ class BeginnerQuiz extends Phaser.Scene {
     }
 
     init(data) {
+        this.playerData;
         this.phaseIndex = data.faseInicial || 0; // Define a fase inicial como 0 se não for fornecida
         this.phase = this.phases[this.phaseIndex];
         this.numberPhases = this.phases.length;
         this.quizCode = [];
         this.currentOrder = [];
         this.codeIndex = 0;
+        this.incorrectAnswers;
+        this.maxIncorrectAnswers = 3;
+        this.finished = false;
     }
 
     create() {
@@ -250,10 +256,13 @@ class BeginnerQuiz extends Phaser.Scene {
     showQuizScreen(phase) {
         this.phase = phase;
         this.phaseTitle = this.phase.title;
-        this.phaseTip = this.phase.tip;
-        this.phaseHints = this.phase.hints;
+        this.phaseTopic = this.phase.topic;
+        this.phaseInformation = this.phase.information;
+        this.phaseTips = this.phase.tips;
         this.phaseCode = this.phase.code;
         this.phaseNumber = this.phase.phase;
+
+        this.incorrectAnswers = localStorage.getItem("tentativas")
 
         // Mostrando parte da dialogueBox
         this.tweens.add({
@@ -276,8 +285,8 @@ class BeginnerQuiz extends Phaser.Scene {
                 ease: 'Linear', // Tipo de easing (suavização) da animação
                 onComplete: () => {
                     this.dialogueBoxAnimated = true;
-                    this.createConfirmationWindow();
-                    this.createTipWindow(this.phaseTip);
+                    this.createConfirmWindow();
+                    this.createInformationWindow(this.phaseInformation);
                 }
             });
         }, 300);
@@ -432,7 +441,7 @@ class BeginnerQuiz extends Phaser.Scene {
             // attempts++;
 
             // Verifica a ordem quando necessário (por exemplo, quando o jogador clica em um botão)
-            this.checkOrder();
+            this.checkAnswer();
             this.confirmBtnText.setStyle({ fill: '#FFFFFF' });
             this.confirmBtn.setFillStyle('0x0077FF').setSize(130, 50);
         });
@@ -467,7 +476,7 @@ class BeginnerQuiz extends Phaser.Scene {
         });
 
         setTimeout(() => {
-            this.showTipWindow();
+            this.showInformationWindow();
         }, 1000);
     }
 
@@ -487,23 +496,38 @@ class BeginnerQuiz extends Phaser.Scene {
     }
 
     // Função para verificar se a ordem dos textos nas divs é igual ao array inicial
-    checkOrder() {
+    checkAnswer(topic, correct) {
         const lineDivs = document.querySelectorAll(".line");
 
         // Verifica se a ordem dos textos nas divs é a mesma que o array inicial
         for (let i = 0; i < lineDivs.length - 1; i++) {
             if (lineDivs[i].textContent !== this.phaseCode[i]) {
-                this.wrong.play();
-                const hintMessage = this.phaseHints[this.phaseCode[i]];
-                this.createHintWindow(hintMessage);
-                this.showHintWindow();
-                return
+                this.incorrectAnswers++;
+
+                const tipMessage = this.phaseTips[this.phaseCode[i]];
+                this.createTipWindow(tipMessage);
+
+                if (this.incorrectAnswers >= this.maxIncorrectAnswers) {
+                    // Chama a função collectData para registrar a resposta do jogador
+                    this.collectData(this.phaseTopic, false);
+                    this.gameOver();
+                }
+                else{
+                    this.showWrong();
+                    setTimeout(() => {
+                        this.showTipWindow();
+                    }, 1000);
+                    return
+                }
+                
             }
         }
 
         this.confirmBtn.disableInteractive();
         this.showCorrect();
         this.correct.play();
+        this.collectData(this.phaseTopic, true);
+        localStorage.setItem("tentativas", 0);
 
         // Itera sobre cada elemento filho e aplica uma cor de fundo
         for (var i = 0; i < lineDivs.length - 1; i++) {
@@ -514,6 +538,9 @@ class BeginnerQuiz extends Phaser.Scene {
             setTimeout(() => {
                 this.gameFinished();
             }, 3000);
+            setTimeout(() => {
+                this.showEndOptions();
+            }, 8000);
         }
         else {
             this.save(this.phaseIndex);
@@ -592,10 +619,85 @@ class BeginnerQuiz extends Phaser.Scene {
         document.body.appendChild(column);
     }
 
-    createTipWindow(dicaAtual) {
-        // Cria uma janela de dica centralizada
+    // CRIA JANELA DE INFORMAÇÃO DA FASE
+    createInformationWindow(informacaoDaFase) {
+        const informationWindowWidth = this.game.canvas.width < 600 ? this.panel.width : 600;
+        const numberLines = this.phaseInformation.length / 51;
+        const heightForLine = this.game.canvas.width < 600 ? numberLines * 70 : numberLines * 40 ;
+        const informationWindowHeight = 100 + heightForLine;
+        const informationWindowX = this.game.canvas.width / 2;
+        const informationWindowY = this.game.canvas.height / 2;
+
+        this.informationWindow = this.add.container(0, 0);
+
+        const windowBackground = this.add.rexRoundRectangle(informationWindowX, informationWindowY, informationWindowWidth * 0.9, informationWindowHeight, 20, 0x001B68).setOrigin(0.5);
+        this.informationWindow.add(windowBackground);
+
+        this.informationText = this.add.text(informationWindowX, informationWindowY - 35, 'Dica: ' + informacaoDaFase, { fontFamily: 'Arial', fontSize: '20px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
+        this.informationWindow.add(this.informationText);
+
+        this.informationBtn = this.add.rexRoundRectangle(informationWindowX, informationWindowY + (informationWindowHeight / 2) - 40, 75, 40, 10, 0xED3D85).setOrigin(0.5)
+        this.informationBtnText = this.add.text(informationWindowX, informationWindowY + (informationWindowHeight / 2) - 40, 'Ok', { fontFamily: 'Cooper Black', fontSize: '18px', fill: '#FFFFFF', padding: 20 }).setOrigin(0.5).setDepth(3);
+
+
+        this.informationWindow.add(this.informationBtn);
+        this.informationWindow.add(this.informationBtnText);
+
+        // Inicialmente, a janela de confirmação estará invisível
+        this.informationWindow.setVisible(false).setDepth(2).setAlpha(0);
+    }
+
+    // MOSTRA A JANELA DE INFORMAÇÃO DA FASE
+    showInformationWindow() {
+        this.confirmBtn.disableInteractive();
+        this.backBtn.disableInteractive();
+        this.informationWindow.setVisible(true);
+        this.tweens.add({
+            targets: this.informationWindow,
+            alpha: 1, // Transparece o retangulo que cobre a tela
+            duration: 300, // Tempo da animação em milissegundos (2 segundos)
+        });
+        this.overlay.setVisible(true).setDepth(1);
+
+        const column = document.querySelectorAll(".column");
+        column.forEach(column => {
+            column.style.zIndex = -5;
+        });
+
+        this.informationBtn.setInteractive();
+
+        this.informationBtn.on('pointerdown', () => {
+            this.select2.play();
+            this.tweens.add({
+                targets: this.informationWindow,
+                alpha: 0, // Transparece o retangulo que cobre a tela
+                duration: 150, // Tempo da animação em milissegundos (2 segundos)
+                onComplete: () => {
+                    this.informationWindow.destroy(); // Destrói a janela de confirmação
+                    column.forEach(column => {
+                        column.style.zIndex = 5;
+                    });
+                }
+            });
+            this.overlay.setVisible(false).setDepth(0);
+            this.confirmBtn.setInteractive();
+            this.backBtn.setInteractive();
+        });
+        
+        this.informationBtn.on('pointerover', () => {
+            this.informationBtn.setFillStyle('0xFF0066').setSize(78, 43);
+            this.informationBtnText.setStyle({ fill: '#001B68' });
+        });
+        this.informationBtn.on('pointerout', () => {
+            this.informationBtn.setFillStyle('0xED3D85').setSize(75, 40);
+            this.informationBtnText.setStyle({ fill: '#FFFFFF' });
+        });
+    }
+
+    // CRIA JANELA DE DICA INTELIGENTE
+    createTipWindow(tip) {
         const tipWindowWidth = this.game.canvas.width < 600 ? this.panel.width : 600;
-        const numberLines = this.phaseTip.length / 51;
+        const numberLines = this.phaseInformation.length / 51;
         const heightForLine = this.game.canvas.width < 600 ? numberLines * 70 : numberLines * 40 ;
         const tipWindowHeight = 100 + heightForLine;
         const tipWindowX = this.game.canvas.width / 2;
@@ -606,7 +708,7 @@ class BeginnerQuiz extends Phaser.Scene {
         const windowBackground = this.add.rexRoundRectangle(tipWindowX, tipWindowY, tipWindowWidth * 0.9, tipWindowHeight, 20, 0x001B68).setOrigin(0.5);
         this.tipWindow.add(windowBackground);
 
-        this.tipText = this.add.text(tipWindowX, tipWindowY - 35, 'Dica: ' + dicaAtual, { fontFamily: 'Arial', fontSize: '20px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
+        this.tipText = this.add.text(tipWindowX, tipWindowY - 35, tip, { fontFamily: 'Arial', fontSize: '20px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
         this.tipWindow.add(this.tipText);
 
         this.tipBtn = this.add.rexRoundRectangle(tipWindowX, tipWindowY + (tipWindowHeight / 2) - 40, 75, 40, 10, 0xED3D85).setOrigin(0.5)
@@ -620,6 +722,7 @@ class BeginnerQuiz extends Phaser.Scene {
         this.tipWindow.setVisible(false).setDepth(2).setAlpha(0);
     }
 
+    // MOSTRA A JANELA DE DICA INTELIGENTE
     showTipWindow() {
         this.confirmBtn.disableInteractive();
         this.backBtn.disableInteractive();
@@ -645,7 +748,7 @@ class BeginnerQuiz extends Phaser.Scene {
                 alpha: 0, // Transparece o retangulo que cobre a tela
                 duration: 150, // Tempo da animação em milissegundos (2 segundos)
                 onComplete: () => {
-                    this.tipWindow.setVisible(false).setDepth(0); // Esconde a janela de confirmação
+                    this.tipWindow.destroy(); // Esconde a janela de confirmação
                     column.forEach(column => {
                         column.style.zIndex = 5;
                     });
@@ -665,80 +768,6 @@ class BeginnerQuiz extends Phaser.Scene {
             this.tipBtnText.setStyle({ fill: '#FFFFFF' });
         });
     }
-
-    createHintWindow(hint) {
-        const tipWindowWidth = this.game.canvas.width < 600 ? this.panel.width : 600;
-        const numberLines = this.phaseTip.length / 51;
-        const heightForLine = this.game.canvas.width < 600 ? numberLines * 70 : numberLines * 40 ;
-        const tipWindowHeight = 100 + heightForLine;
-        const tipWindowX = this.game.canvas.width / 2;
-        const tipWindowY = this.game.canvas.height / 2;
-
-        this.hintWindow = this.add.container(0, 0);
-
-        const windowBackground = this.add.rexRoundRectangle(tipWindowX, tipWindowY, tipWindowWidth * 0.9, tipWindowHeight, 20, 0x001B68).setOrigin(0.5);
-        this.hintWindow.add(windowBackground);
-
-        this.hintText = this.add.text(tipWindowX, tipWindowY - 35, hint, { fontFamily: 'Arial', fontSize: '20px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
-        this.hintWindow.add(this.hintText);
-
-        this.hintBtn = this.add.rexRoundRectangle(tipWindowX, tipWindowY + (tipWindowHeight / 2) - 40, 75, 40, 10, 0xED3D85).setOrigin(0.5)
-        this.hintBtnText = this.add.text(tipWindowX, tipWindowY + (tipWindowHeight / 2) - 40, 'Ok', { fontFamily: 'Cooper Black', fontSize: '18px', fill: '#FFFFFF', padding: 20 }).setOrigin(0.5).setDepth(3);
-
-
-        this.hintWindow.add(this.hintBtn);
-        this.hintWindow.add(this.hintBtnText);
-
-        // Inicialmente, a janela de confirmação estará invisível
-        this.hintWindow.setVisible(false).setDepth(2).setAlpha(0);
-    }
-
-    showHintWindow() {
-        this.confirmBtn.disableInteractive();
-        this.backBtn.disableInteractive();
-        this.hintWindow.setVisible(true);
-        this.tweens.add({
-            targets: this.hintWindow,
-            alpha: 1, // Transparece o retangulo que cobre a tela
-            duration: 300, // Tempo da animação em milissegundos (2 segundos)
-        });
-        this.overlay.setVisible(true).setDepth(1);
-
-        const column = document.querySelectorAll(".column");
-        column.forEach(column => {
-            column.style.zIndex = -5;
-        });
-
-        this.hintBtn.setInteractive();
-
-        this.hintBtn.on('pointerdown', () => {
-            this.select2.play();
-            this.tweens.add({
-                targets: this.hintWindow,
-                alpha: 0, // Transparece o retangulo que cobre a tela
-                duration: 150, // Tempo da animação em milissegundos (2 segundos)
-                onComplete: () => {
-                    this.hintWindow.setVisible(false).setDepth(0); // Esconde a janela de confirmação
-                    column.forEach(column => {
-                        column.style.zIndex = 5;
-                    });
-                }
-            });
-            this.overlay.setVisible(false).setDepth(0);
-            this.confirmBtn.setInteractive();
-            this.backBtn.setInteractive();
-        });
-        
-        this.hintBtn.on('pointerover', () => {
-            this.hintBtn.setFillStyle('0xFF0066').setSize(78, 43);
-            this.hintBtnText.setStyle({ fill: '#001B68' });
-        });
-        this.hintBtn.on('pointerout', () => {
-            this.hintBtn.setFillStyle('0xED3D85').setSize(75, 40);
-            this.hintBtnText.setStyle({ fill: '#FFFFFF' });
-        });
-    }
-
 
     clearCode() {
         const column = document.querySelectorAll(".column");
@@ -791,6 +820,8 @@ class BeginnerQuiz extends Phaser.Scene {
         } 
         this.isShowingWrong = true;
 
+        this.wrong.play();
+        
         const messageDiv = document.createElement("div");
         messageDiv.className = "message";
         messageDiv.textContent = "Errado! Tente de novo!";
@@ -815,10 +846,10 @@ class BeginnerQuiz extends Phaser.Scene {
         setTimeout(() => {
             document.body.removeChild(document.getElementById('message-wrong'));
             this.isShowingWrong = false;
-        }, 3000); // Tempo em milissegundos antes de remover a mensagem
+        }, 1500); // Tempo em milissegundos antes de remover a mensagem
     }
 
-    createConfirmationWindow() {
+    createConfirmWindow() {
         // Cria uma janela de confirmação centralizada
         const confirmWindowWidth = this.game.canvas.width < 600 ? this.panel.width : 600;
         const confirmWindowHeight = 150;
@@ -879,18 +910,18 @@ class BeginnerQuiz extends Phaser.Scene {
             button.on('pointerover', () => {
                 button.setFillStyle('0xFF0066').setSize(80, 45);
                 if(button.x < confirmWindowX) { 
-                    this.confirmYesText.setStyle({ fontSize: '22px' });
-                } else {
-                    this.confirmNoText.setStyle({ fontSize: '22px' });
+                    this.confirmYesText.setStyle({ fill: '#001B68' });
+                } else { 
+                    this.confirmNoText.setStyle({ fill: '#001B68' });
                 }
             });
 
             button.on('pointerout', () => { 
                 button.setFillStyle('0xED3D85').setSize(75, 40);
                 if(button.x < confirmWindowX) { 
-                    this.confirmYesText.setStyle({ fontSize: '20px' });
-                } else {
-                    this.confirmNoText.setStyle({ fontSize: '20px' });
+                    this.confirmYesText.setStyle({ fill: '#ffffff' });
+                } else { 
+                    this.confirmNoText.setStyle({ fill: '#ffffff' });
                 }
             });
 
@@ -946,6 +977,7 @@ class BeginnerQuiz extends Phaser.Scene {
     }
 
     gameFinished() {
+        this.finished = true;
         this.overlay.setVisible(true).setDepth(1);
         this.confirmBtn.destroy();
         this.confirmBtnText.destroy();
@@ -957,7 +989,7 @@ class BeginnerQuiz extends Phaser.Scene {
         
         let winnerFont = (1.8 * this.game.canvas.width)/100 + 22;
         
-        // Cria a animação da palavra "Game Over"
+        // Cria a animação da palavra "Parabéns"
         const winnerTitle = this.add.text(0, 0, '', {
             fontFamily: 'Cooper Black',
             fontSize: winnerFont,
@@ -1046,9 +1078,9 @@ class BeginnerQuiz extends Phaser.Scene {
             wordWrap: { width: 400 }
         }).setOrigin(0.5);
 
-        this.restartBtn = this.add.text(this.game.canvas.width / 2, (this.game.canvas.height / 2) + 30, 'REINICIAR', { fontFamily: 'Cooper Black', fontSize: '22px', fill: '#ff0000', padding: 10 }).setOrigin(0.5).setDepth(2).setVisible(false);
+        this.restartBtn = this.add.text(this.game.canvas.width / 2, (this.game.canvas.height / 2) + 60, 'REINICIAR', { fontFamily: 'Cooper Black', fontSize: '22px', fill: '#ff0000', padding: 10 }).setOrigin(0.5).setDepth(2).setVisible(false);
 
-        this.quitBtn = this.add.text(this.game.canvas.width / 2, (this.game.canvas.height / 2) + 90, 'SAIR', { fontFamily: 'Cooper Black', fontSize: '22px', fill: '#ff0000', padding: 10 }).setOrigin(0.5).setDepth(2).setVisible(false);
+        this.performanceBtn = this.add.text(this.game.canvas.width / 2, (this.game.canvas.height / 2) + 120, 'ANALISAR DESEMPENHO', { fontFamily: 'Cooper Black', fontSize: '22px', fill: '#ff0000', padding: 10 }).setOrigin(0.5).setDepth(2).setVisible(false);
 
         // Configura a animação para que cada letra apareça sequencialmente
         const gameOver = 'VOCÊ PERDEU!';
@@ -1064,28 +1096,8 @@ class BeginnerQuiz extends Phaser.Scene {
                     this.time.removeAllEvents();
                     setTimeout(() => {
 
-                        [this.restartBtn, this.quitBtn].forEach(button => {
-                            button.setVisible(true);
-                            button.setInteractive();
-
-                            button.on('pointerdown', () => {
-                                this.select2.play();
-                                if(button.text === 'REINICIAR') {
-                                    this.resetGame();
-                                } else {
-                                    this.quitGame();
-                                }
-                            });
-
-                            button.on('pointerover', () => {
-                                button.setStyle({fontSize: 26, fill: '#ffffff'})
-                            })
-                            button.on('pointerout', () => {
-                                button.setStyle({fontSize: 24, fill: '#ff0000'})
-                            })
-                        });
+                        this.showPerformanceWindow();
                        
- 
                     }, 1000);
                 }
             },
@@ -1098,6 +1110,162 @@ class BeginnerQuiz extends Phaser.Scene {
         gameOverTitle.setOrigin(0.5);
         gameOverTitle.setDepth(2);
         gameOverTitle.setPosition(this.game.canvas.width / 2, this.game.canvas.height / 2.5);
+    }
+
+    // COLETA DE DADOS
+    collectData(topic, correct, responseTime) {
+        if (!this.playerData) { // Verifica se ainda não existem dados para o jogador com o ID fornecido
+            this.playerData = []; // Se não existir, cria um array vazio para armazenar os dados do jogador
+        }
+        // Adiciona um novo registro de dados ao array do jogador
+        this.playerData.push({ topic, correct });
+        // Cada registro contém:
+        // - topic: O tópico da pergunta ou desafio
+        // - correct: Um booleano indicando se a resposta estava correta ou não
+        // - responseTime: O tempo que o jogador levou para responder
+    }
+
+    // ANÁLISE DE DADOS
+    analyzeData() {
+        const data = this.playerData; // Acessa os dados do jogador
+        // Reduz os dados para calcular o desempenho por tópico
+        const performance = data.reduce((acc, entry) => {
+            // Se o tópico ainda não estiver no acumulador, o inicializa
+            if (!acc[entry.topic]) {
+                acc[entry.topic] = { correct: 0, attempts: 0 };
+            }
+             // Incrementa o número de respostas corretas para o tópico
+            acc[entry.topic].correct += entry.correct ? 1 : 0;
+            // Incrementa o número de tentativas para o tópico
+            acc[entry.topic].attempts += 1;
+            return acc;
+        }, {});
+        return performance; // Retorna o desempenho por tópico
+    }
+
+    // FEEDBACK DE DESEMPENHO
+    recommendContent() {
+        const performance = this.analyzeData(); // Analisa os dados coletados
+
+        // Classifica os tópicos pelo sucesso
+        const sortedTopics = Object.keys(performance).map(topic => {
+            const successRate = performance[topic].correct / performance[topic].attempts;
+            return { topic, successRate };
+        }).sort((a, b) => a.successRate - b.successRate);
+
+        // Seleciona os 3 piores e 3 melhores tópicos
+        const top3Worst = sortedTopics.slice(0, 3); // 3 piores
+        const top3Best = sortedTopics.slice(-3).reverse(); // 3 melhores
+
+        const worstTopics = top3Worst.map(item => `- ${item.topic} (Taxa de sucesso: ${(item.successRate * 100).toFixed(2)}%)`).join('\n');
+        const bestTopics = top3Best.map(item => `- ${item.topic} (Taxa de sucesso: ${(item.successRate * 100).toFixed(2)}%)`).join('\n');
+        
+        const message = `Tópicos a revisar:\n${worstTopics}\n\nTópicos de melhor desempenho:\n${bestTopics}`;
+
+        return message;
+    }
+
+    showEndOptions() {
+        if(this.finished === true) {
+            this.performanceBtn = this.add.text(this.game.canvas.width / 2, (this.game.canvas.height / 2) + 120, 'Analisar Desempenho', { fontFamily: 'Cooper Black', fontSize: '22px', fill: '#228b22', padding: 10 }).setOrigin(0.5).setDepth(2);
+
+            this.performanceBtn.setInteractive();
+
+            this.performanceBtn.on('pointerdown', () => {
+                this.showPerformanceWindow();
+                this.performanceBtn.setStyle({ fill: '#228b22' });
+            });
+    
+            // Evento de hover
+            this.performanceBtn.on('pointerover', () => {
+                this.performanceBtn.setStyle({ fill: '#FFFFFF' });
+            });
+    
+            // Evento de hout
+            this.performanceBtn.on('pointerout', () => {
+                this.performanceBtn.setStyle({ fill: '#228b22' });
+            });
+        } else {
+            this.performanceBtn = this.add.text(this.game.canvas.width / 2, (this.game.canvas.height / 2) + 120, 'Analisar Desempenho', { fontFamily: 'Cooper Black', fontSize: '22px', fill: '#228b22', padding: 10 }).setOrigin(0.5).setDepth(2);
+
+            this.performanceBtn.setInteractive();
+
+            this.performanceBtn.on('pointerdown', () => {
+                this.showPerformanceWindow();
+                this.performanceBtn.setStyle({ fill: '#ff0000' });
+            });
+    
+            // Evento de hover
+            this.performanceBtn.on('pointerover', () => {
+                this.performanceBtn.setStyle({ fill: '#FFFFFF' });
+            });
+    
+            // Evento de hout
+            this.performanceBtn.on('pointerout', () => {
+                this.performanceBtn.setStyle({ fill: '#ff0000' });
+            });
+        }
+    }
+
+    // ANÁLISE DE DESEMPENHO
+    showPerformanceWindow() {
+         // Cria uma janela centralizada
+         const performanceWindowWidth = this.game.canvas.width < 600 ? this.panel.width : 600;
+         const heightForLine = this.game.canvas.width < 600 ? 600 : 400 ;
+         const performanceWindowHeight = 100 + heightForLine;
+         const performanceWindowX = this.game.canvas.width / 2;
+         const performanceWindowY = this.game.canvas.height / 2;
+ 
+         this.performanceWindow = this.add.container(0, 0);
+         this.performanceWindow.setDepth(2).setAlpha(0)
+ 
+         const windowBackground = this.add.rexRoundRectangle(performanceWindowX, performanceWindowY, performanceWindowWidth * 0.9, performanceWindowHeight, 20, 0x001B68).setOrigin(0.5);
+         this.performanceWindow.add(windowBackground);
+ 
+         this.performanceTitle = this.add.text(performanceWindowX, performanceWindowY - (performanceWindowHeight / 2) + 40, 'DESEMPENHO', { fontFamily: 'Arial', fontSize: '22px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
+
+         // Cria a mensagem com os tópicos de menor e maior taxa de sucesso
+         const text = this.recommendContent();
+
+        this.performanceText = this.add.text(performanceWindowX, performanceWindowY - 35, text, { fontFamily: 'Arial', fontSize: '20px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
+        this.performanceWindow.add(this.performanceText);
+
+         this.backToMenuBtn = this.add.rexRoundRectangle(performanceWindowX, performanceWindowY + (performanceWindowHeight / 2) - 50, 170, 40, 10, 0xED3D85).setOrigin(0.5)
+         this.backToMenuBtnText = this.add.text(performanceWindowX, performanceWindowY + (performanceWindowHeight / 2) - 50, 'Voltar ao Menu', { fontFamily: 'Cooper Black', fontSize: '18px', fill: '#FFFFFF', padding: 20 }).setOrigin(0.5).setDepth(3);
+        
+         this.backToMenuBtn.setInteractive();
+
+        this.backToMenuBtn.on('pointerdown', () => {
+            this.select2.play();
+            this.clearCode();
+            this.backToMenuBtn.destroy();
+            // Pare a música de fundo ou quaisquer sons que estejam tocando
+            if(this.registry.get('musicOn')) {
+                this.playMusic.stop();
+            }
+            this.scene.start('Load1');
+        });
+
+        this.backToMenuBtn.on('pointerover', () => {
+            this.backToMenuBtn.setFillStyle('0xFF0066').setSize(180, 45);
+            this.backToMenuBtnText.setStyle({ fill: '#001B68' });
+        });
+
+        this.backToMenuBtn.on('pointerout', () => { 
+            this.backToMenuBtn.setFillStyle('0xED3D85').setSize(170, 40);
+            this.backToMenuBtnText.setStyle({ fill: '#ffffff' });
+        });
+
+         this.performanceWindow.add(this.performanceTitle);
+         this.performanceWindow.add(this.backToMenuBtn);
+         this.performanceWindow.add(this.backToMenuBtnText);
+
+         this.tweens.add({
+            targets: this.performanceWindow,
+            alpha: 1, // Transparece o retangulo que cobre a tela
+            duration: 300, // Tempo da animação em milissegundos (2 segundos)
+        });
+        this.overlay.setVisible(true).setDepth(1);
     }
 
 }
