@@ -23,13 +23,14 @@ class BeginnerQuiz extends Phaser.Scene {
             {
                 phase: 2,
                 topic: "Entrada e saída de dados",
-                title: "Fase 2: Ler um número inteiro", 
-                information: "O comando 'leia' recebe um dado informado pelo usuário e o atribui à uma variável.",
+                title: "Fase 2: Ler e exibir um número inteiro", 
+                information: "O comando 'leia' recebe um dado informado pelo usuário e o atribui à uma variável. Já o 'escreva', exibe um dado na tela, podendo ser de uma variável ou não.",
                 code: [
                     "var",
                     "num: inteiro",
                     "inicio",
                     "leia(num)",
+                    "escreva(num)",
                     "fim"
                 ],
                 tips: {
@@ -168,14 +169,13 @@ class BeginnerQuiz extends Phaser.Scene {
     }
 
     init(data) {
-        this.playerData;
         this.phaseIndex = data.faseInicial || 0; // Define a fase inicial como 0 se não for fornecida
         this.phase = this.phases[this.phaseIndex];
         this.numberPhases = this.phases.length;
         this.quizCode = [];
         this.currentOrder = [];
         this.codeIndex = 0;
-        this.incorrectAnswers;
+        this.tentativas;
         this.maxIncorrectAnswers = 3;
         this.finished = false;
     }
@@ -262,7 +262,13 @@ class BeginnerQuiz extends Phaser.Scene {
         this.phaseCode = this.phase.code;
         this.phaseNumber = this.phase.phase;
 
-        this.incorrectAnswers = localStorage.getItem("tentativas")
+        if(this.phaseIndex == 0) {
+            localStorage.setItem("tentativas", 0);
+            localStorage.removeItem("dadosJogador");
+        } 
+        
+        this.tentativas = localStorage.getItem("tentativas")
+
 
         // Mostrando parte da dialogueBox
         this.tweens.add({
@@ -430,17 +436,8 @@ class BeginnerQuiz extends Phaser.Scene {
 
         this.confirmBtn.setInteractive();
 
-        /* let attempts = localStorage.getItem("tentativas");
-
-        if(!attempts || attempts > 0) {
-            attempts = 0;
-            localStorage.setItem("tentativas", 0);
-        } */
-
         this.confirmBtn.on('pointerdown', () => {
-            // attempts++;
-
-            // Verifica a ordem quando necessário (por exemplo, quando o jogador clica em um botão)
+            // Verifica a resposta
             this.checkAnswer();
             this.confirmBtnText.setStyle({ fill: '#FFFFFF' });
             this.confirmBtn.setFillStyle('0x0077FF').setSize(130, 50);
@@ -496,18 +493,19 @@ class BeginnerQuiz extends Phaser.Scene {
     }
 
     // Função para verificar se a ordem dos textos nas divs é igual ao array inicial
-    checkAnswer(topic, correct) {
+    checkAnswer() {
         const lineDivs = document.querySelectorAll(".line");
+        this.tentativas++;
+        localStorage.setItem("tentativas", this.tentativas)
 
         // Verifica se a ordem dos textos nas divs é a mesma que o array inicial
         for (let i = 0; i < lineDivs.length - 1; i++) {
             if (lineDivs[i].textContent !== this.phaseCode[i]) {
-                this.incorrectAnswers++;
 
                 const tipMessage = this.phaseTips[this.phaseCode[i]];
                 this.createTipWindow(tipMessage);
 
-                if (this.incorrectAnswers >= this.maxIncorrectAnswers) {
+                if (this.tentativas >= this.maxIncorrectAnswers) {
                     // Chama a função collectData para registrar a resposta do jogador
                     this.collectData(this.phaseTopic, false);
                     this.gameOver();
@@ -1113,33 +1111,46 @@ class BeginnerQuiz extends Phaser.Scene {
     }
 
     // COLETA DE DADOS
-    collectData(topic, correct, responseTime) {
-        if (!this.playerData) { // Verifica se ainda não existem dados para o jogador com o ID fornecido
-            this.playerData = []; // Se não existir, cria um array vazio para armazenar os dados do jogador
+    collectData(topic, correct) {
+        // Recupera os dados existentes da localStorage, ou inicializa um novo array se não houver dados
+        let playerData = JSON.parse(localStorage.getItem('dadosJogador')) || {};
+
+        // Verifica se o tópico já existe nos dados
+        if (!playerData[topic]) {
+            // Se não existir, cria um novo objeto para armazenar as informações do tópico
+            playerData[topic] = {
+                attempts: 0,
+                correct: 0
+            };
         }
-        // Adiciona um novo registro de dados ao array do jogador
-        this.playerData.push({ topic, correct });
-        // Cada registro contém:
-        // - topic: O tópico da pergunta ou desafio
-        // - correct: Um booleano indicando se a resposta estava correta ou não
-        // - responseTime: O tempo que o jogador levou para responder
+
+        // Incrementa o número de tentativas
+        playerData[topic].attempts = this.tentativas;
+
+        // Se a resposta estiver correta, incrementa o número de acertos
+        if (correct) {
+            playerData[topic].correct += 1;
+        }
+
+        // Salva de volta na localStorage
+        localStorage.setItem('dadosJogador', JSON.stringify(playerData));
     }
 
     // ANÁLISE DE DADOS
     analyzeData() {
-        const data = this.playerData; // Acessa os dados do jogador
-        // Reduz os dados para calcular o desempenho por tópico
-        const performance = data.reduce((acc, entry) => {
-            // Se o tópico ainda não estiver no acumulador, o inicializa
-            if (!acc[entry.topic]) {
-                acc[entry.topic] = { correct: 0, attempts: 0 };
-            }
-             // Incrementa o número de respostas corretas para o tópico
-            acc[entry.topic].correct += entry.correct ? 1 : 0;
-            // Incrementa o número de tentativas para o tópico
-            acc[entry.topic].attempts += 1;
-            return acc;
-        }, {});
+        const playerData = JSON.parse(localStorage.getItem('dadosJogador')) || {};
+
+        // Analisa os dados e retorna a performance de cada tópico
+        const performance = {};
+        for (const topic in playerData) {
+            const data = playerData[topic];
+            performance[topic] = {
+                correct: data.correct,
+                attempts: data.attempts,
+                successRate: data.correct / data.attempts
+            };
+        }
+
         return performance; // Retorna o desempenho por tópico
     }
 
@@ -1147,10 +1158,14 @@ class BeginnerQuiz extends Phaser.Scene {
     recommendContent() {
         const performance = this.analyzeData(); // Analisa os dados coletados
 
-        // Classifica os tópicos pelo sucesso
+        // Classificar os tópicos por taxa de sucesso
         const sortedTopics = Object.keys(performance).map(topic => {
-            const successRate = performance[topic].correct / performance[topic].attempts;
-            return { topic, successRate };
+            return {
+                topic,
+                successRate: performance[topic].successRate,
+                attempts: performance[topic].attempts,
+                correct: performance[topic].correct
+            };
         }).sort((a, b) => a.successRate - b.successRate);
 
         // Seleciona os 3 piores e 3 melhores tópicos
@@ -1238,6 +1253,7 @@ class BeginnerQuiz extends Phaser.Scene {
         this.backToMenuBtn.on('pointerdown', () => {
             this.select2.play();
             this.clearCode();
+            localStorage.removeItem('dadosJogador');
             this.backToMenuBtn.destroy();
             // Pare a música de fundo ou quaisquer sons que estejam tocando
             if(this.registry.get('musicOn')) {
