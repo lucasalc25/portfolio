@@ -1172,12 +1172,13 @@ class BeginnerQuiz extends Phaser.Scene {
         const top3Worst = sortedTopics.slice(0, 3); // 3 piores
         const top3Best = sortedTopics.slice(-3).reverse(); // 3 melhores
 
-        const worstTopics = top3Worst.map(item => `- ${item.topic} (Taxa de sucesso: ${(item.successRate * 100).toFixed(2)}%)`).join('\n');
-        const bestTopics = top3Best.map(item => `- ${item.topic} (Taxa de sucesso: ${(item.successRate * 100).toFixed(2)}%)`).join('\n');
-        
-        const message = `Tópicos a revisar:\n${worstTopics}\n\nTópicos de melhor desempenho:\n${bestTopics}`;
+        const worstTopics = top3Worst.map(item => `- ${item.topic} (Taxa de acerto: ${(item.successRate * 100).toFixed(2)}%)`).join('\n');
+        const bestTopics = top3Best.map(item => `- ${item.topic} (Taxa de acerto: ${(item.successRate * 100).toFixed(2)}%)`).join('\n');
 
-        return message;
+        const topics = { worstTopics, bestTopics }
+
+        console.log(topics)
+        return topics;
     }
 
     showEndOptions() {
@@ -1225,7 +1226,7 @@ class BeginnerQuiz extends Phaser.Scene {
     // ANÁLISE DE DESEMPENHO
     showPerformanceWindow() {
          // Cria uma janela centralizada
-         const performanceWindowWidth = this.game.canvas.width < 600 ? this.panel.width : 600;
+         const performanceWindowWidth = this.game.canvas.width < 600 ? this.panel.width - 100: 500;
          const heightForLine = this.game.canvas.width < 600 ? 600 : 400 ;
          const performanceWindowHeight = 100 + heightForLine;
          const performanceWindowX = this.game.canvas.width / 2;
@@ -1237,13 +1238,25 @@ class BeginnerQuiz extends Phaser.Scene {
          const windowBackground = this.add.rexRoundRectangle(performanceWindowX, performanceWindowY, performanceWindowWidth * 0.9, performanceWindowHeight, 20, 0x001B68).setOrigin(0.5);
          this.performanceWindow.add(windowBackground);
  
-         this.performanceTitle = this.add.text(performanceWindowX, performanceWindowY - (performanceWindowHeight / 2) + 40, 'DESEMPENHO', { fontFamily: 'Arial', fontSize: '22px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
+         this.performanceTitle = this.add.text(performanceWindowX, 80, 'DESEMPENHO', { fontFamily: 'Cooper Black', fontSize: '22px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
 
-         // Cria a mensagem com os tópicos de menor e maior taxa de sucesso
-         const text = this.recommendContent();
+         // Tópicos de menor e maior taxa de acerto
+         let topics = this.recommendContent();
 
-        this.performanceText = this.add.text(performanceWindowX, performanceWindowY - 35, text, { fontFamily: 'Arial', fontSize: '20px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
-        this.performanceWindow.add(this.performanceText);
+         this.bestTopicsTitle = this.add.text(performanceWindowX, 120, 'Tópicos de melhor desempenho', { fontFamily: 'Cooper Black', fontSize: '18px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
+         this.performanceWindow.add(this.bestTopicsTitle);
+
+        topics.forEach((topic, margin = 30) => {
+            this.bestTopics = this.add.text(performanceWindowX, 150 + margin, topics[topic], { fontFamily: 'Cooper Black', fontSize: '16px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
+            this.performanceWindow.add(this.bestTopics);
+        })
+
+        this.worstTopicsTitle = this.add.text(performanceWindowX, 250, 'Tópicos de pior desempenho', { fontFamily: 'Cooper Black', fontSize: '18px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
+         this.performanceWindow.add(this.worstTopicsTitle);
+
+        this.worstTopics = this.add.text(performanceWindowX, 280, topics[0], { fontFamily: 'Cooper Black', fontSize: '18px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
+        this.performanceWindow.add(this.worstTopics);
+
 
          this.backToMenuBtn = this.add.rexRoundRectangle(performanceWindowX, performanceWindowY + (performanceWindowHeight / 2) - 50, 170, 40, 10, 0xED3D85).setOrigin(0.5)
          this.backToMenuBtnText = this.add.text(performanceWindowX, performanceWindowY + (performanceWindowHeight / 2) - 50, 'Voltar ao Menu', { fontFamily: 'Cooper Black', fontSize: '18px', fill: '#FFFFFF', padding: 20 }).setOrigin(0.5).setDepth(3);
