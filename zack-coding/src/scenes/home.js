@@ -54,7 +54,7 @@ class Home extends Phaser.Scene {
         this.menuFont = (1.73 * this.game.canvas.width)/100 + 28;
 
         // Adicionando opções do menu
-        this.playBtn = this.add.text(this.game.canvas.width / 2, this.game.canvas.height * 0.2, 'Novo Jogo', { fontFamily: 'Cooper Black', fontSize: this.menuFont, fill: '#ddd' }).setOrigin(0.5, 0).setDepth(2);
+        this.playBtn = this.add.text(this.game.canvas.width / 2, this.game.canvas.height * 0.2, 'Novo Jogo', { fontFamily: 'Cooper Black', fontSize: this.menuFont, fill: '#ddd'}).setOrigin(0.5, 0).setDepth(2);
         this.loadBtn = this.add.text(this.game.canvas.width / 2, this.game.canvas.height * 0.4, 'Carregar', { fontFamily: 'Cooper Black', fontSize: this.menuFont, fill: '#ddd' }).setOrigin(0.5, 0).setDepth(2);
         this.settingsBtn = this.add.text(this.game.canvas.width / 2, this.game.canvas.height * 0.6, 'Configurações', { fontFamily: 'Cooper Black', fontSize: this.menuFont, fill: '#ddd' }).setOrigin(0.5, 0).setDepth(2);
         this.quitBtn = this.add.text(this.game.canvas.width / 2, this.game.canvas.height * 0.8, 'Sair', { fontFamily: 'Cooper Black', fontSize: this.menuFont, fill: '#ddd' }).setOrigin(0.5, 0).setDepth(2);

@@ -501,13 +501,13 @@ class BeginnerQuiz extends Phaser.Scene {
         // Verifica se a ordem dos textos nas divs é a mesma que o array inicial
         for (let i = 0; i < lineDivs.length - 1; i++) {
             if (lineDivs[i].textContent !== this.phaseCode[i]) {
+                // Chama a função collectData para registrar a resposta do jogador
+                this.collectData(this.phaseTopic, false);
 
                 const tipMessage = this.phaseTips[this.phaseCode[i]];
                 this.createTipWindow(tipMessage);
 
                 if (this.tentativas >= this.maxIncorrectAnswers) {
-                    // Chama a função collectData para registrar a resposta do jogador
-                    this.collectData(this.phaseTopic, false);
                     this.gameOver();
                 }
                 else{
@@ -1120,7 +1120,7 @@ class BeginnerQuiz extends Phaser.Scene {
             // Se não existir, cria um novo objeto para armazenar as informações do tópico
             playerData[topic] = {
                 attempts: 0,
-                correct: 0
+                corrects: 0
             };
         }
 
@@ -1129,7 +1129,7 @@ class BeginnerQuiz extends Phaser.Scene {
 
         // Se a resposta estiver correta, incrementa o número de acertos
         if (correct) {
-            playerData[topic].correct += 1;
+            playerData[topic].corrects += 1;
         }
 
         // Salva de volta na localStorage
@@ -1145,9 +1145,9 @@ class BeginnerQuiz extends Phaser.Scene {
         for (const topic in playerData) {
             const data = playerData[topic];
             performance[topic] = {
-                correct: data.correct,
+                corrects: data.corrects,
                 attempts: data.attempts,
-                successRate: data.correct / data.attempts
+                successRate: data.corrects / data.attempts
             };
         }
 
@@ -1162,23 +1162,17 @@ class BeginnerQuiz extends Phaser.Scene {
         const sortedTopics = Object.keys(performance).map(topic => {
             return {
                 topic,
-                successRate: performance[topic].successRate,
                 attempts: performance[topic].attempts,
-                correct: performance[topic].correct
+                corrects: performance[topic].corrects,
+                successRate: performance[topic].successRate
             };
         }).sort((a, b) => a.successRate - b.successRate);
 
         // Seleciona os 3 piores e 3 melhores tópicos
-        const top3Worst = sortedTopics.slice(0, 3); // 3 piores
-        const top3Best = sortedTopics.slice(-3).reverse(); // 3 melhores
+        const bestTopics = sortedTopics.slice(-3).reverse();
+        const worstTopics = sortedTopics.slice(0, 3);
 
-        const worstTopics = top3Worst.map(item => `- ${item.topic} (Taxa de acerto: ${(item.successRate * 100).toFixed(2)}%)`).join('\n');
-        const bestTopics = top3Best.map(item => `- ${item.topic} (Taxa de acerto: ${(item.successRate * 100).toFixed(2)}%)`).join('\n');
-
-        const topics = { worstTopics, bestTopics }
-
-        console.log(topics)
-        return topics;
+        return { worstTopics, bestTopics };
     }
 
     showEndOptions() {
@@ -1223,12 +1217,129 @@ class BeginnerQuiz extends Phaser.Scene {
         }
     }
 
-    // ANÁLISE DE DESEMPENHO
+    createPieChart(bestTopics, worstTopics) {
+        const ctx1 = document.getElementById('performanceChart1').getContext('2d');
+        const ctx2 = document.getElementById('performanceChart2').getContext('2d');
+
+        const bestLabels = bestTopics.map(topic => topic.topic);
+        const bestData = bestTopics.map(topic => topic.successRate);
+    
+        const chart1 = new Chart(ctx1, {
+            type: 'doughnut',
+            data: {
+                labels: bestLabels,
+                datasets: [{
+                    data: bestData,
+                    backgroundColor: [
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56',
+                        '#4BC0C0',
+                        '#9966FF',
+                        '#FF9F40'
+                    ],
+                    hoverBackgroundColor: [
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56',
+                        '#4BC0C0',
+                        '#9966FF',
+                        '#FF9F40'
+                    ]
+                }]
+            },
+            options: {
+                responsive: false,
+                maintainAspectRatio: false, // Permite ajustar o gráfico ao tamanho do canvas
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'right',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Melhores tópicos',
+                        color: '#ffffff'
+                    }
+                }
+            }
+        });
+
+        const worstLabels = worstTopics.map(topic => topic.topic);
+        const worstData = worstTopics.map(topic => topic.successRate);
+
+        const chart2 = new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: worstLabels,
+                datasets: [{
+                    data: worstData,
+                    color: '#ffffff',
+                    backgroundColor: [
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56',
+                        '#4BC0C0',
+                        '#9966FF',
+                        '#FF9F40'
+                    ],
+                    hoverBackgroundColor: [
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56',
+                        '#4BC0C0',
+                        '#9966FF',
+                        '#FF9F40'
+                    ]
+                }]
+            },
+            options: {
+                responsive: false,
+                maintainAspectRatio: false, // Permite ajustar o gráfico ao tamanho do canvas
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'right',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Piores tópicos',
+                        color: '#ffffff'
+                    }
+                }
+            }
+        });
+    }
+
+    showPerformanceGraph() {
+        const canvasCollection = document.getElementsByClassName('performanceChart');
+
+        Array.from(canvasCollection).forEach((canvas) => {
+            canvas.style.display = 'block'; // Mostra o canvas de cada coleção
+            canvas.style.position = "absolute"; 
+            canvas.style.top += "30%"; 
+            canvas.style.left= "50%";
+        })
+        
+        const { worstTopics, bestTopics } = this.recommendContent();
+        this.createPieChart(bestTopics, worstTopics);
+    }
+
+    hidePerformanceGraph() {
+        const canvasCollection = document.getElementsByClassName('performanceChart');
+        Array.from(canvasCollection).forEach((canvas) => {
+            if (canvas) {
+                canvas.style.display = 'none';
+            }
+        })
+       
+    }
+
+    // MOSTRAR JANELA DE DESEMPENHO
     showPerformanceWindow() {
          // Cria uma janela centralizada
-         const performanceWindowWidth = this.game.canvas.width < 600 ? this.panel.width - 100: 500;
-         const heightForLine = this.game.canvas.width < 600 ? 600 : 400 ;
-         const performanceWindowHeight = 100 + heightForLine;
+         const performanceWindowWidth = this.game.canvas.width < 600 ? this.panel.width: 500;
+         const performanceWindowHeight = this.game.canvas.height * 0.8;
          const performanceWindowX = this.game.canvas.width / 2;
          const performanceWindowY = this.game.canvas.height / 2;
  
@@ -1238,33 +1349,17 @@ class BeginnerQuiz extends Phaser.Scene {
          const windowBackground = this.add.rexRoundRectangle(performanceWindowX, performanceWindowY, performanceWindowWidth * 0.9, performanceWindowHeight, 20, 0x001B68).setOrigin(0.5);
          this.performanceWindow.add(windowBackground);
  
-         this.performanceTitle = this.add.text(performanceWindowX, 80, 'DESEMPENHO', { fontFamily: 'Cooper Black', fontSize: '22px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
-
-         // Tópicos de menor e maior taxa de acerto
-         let topics = this.recommendContent();
-
-         this.bestTopicsTitle = this.add.text(performanceWindowX, 120, 'Tópicos de melhor desempenho', { fontFamily: 'Cooper Black', fontSize: '18px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
-         this.performanceWindow.add(this.bestTopicsTitle);
-
-        topics.forEach((topic, margin = 30) => {
-            this.bestTopics = this.add.text(performanceWindowX, 150 + margin, topics[topic], { fontFamily: 'Cooper Black', fontSize: '16px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
-            this.performanceWindow.add(this.bestTopics);
-        })
-
-        this.worstTopicsTitle = this.add.text(performanceWindowX, 250, 'Tópicos de pior desempenho', { fontFamily: 'Cooper Black', fontSize: '18px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
-         this.performanceWindow.add(this.worstTopicsTitle);
-
-        this.worstTopics = this.add.text(performanceWindowX, 280, topics[0], { fontFamily: 'Cooper Black', fontSize: '18px', fill: '#FFFFFF', align: 'center' }).setWordWrapWidth(windowBackground.width * 0.8).setOrigin(0.5);
-        this.performanceWindow.add(this.worstTopics);
-
+        // Tópicos de menor e maior taxa de acerto
+        this.showPerformanceGraph();
 
          this.backToMenuBtn = this.add.rexRoundRectangle(performanceWindowX, performanceWindowY + (performanceWindowHeight / 2) - 50, 170, 40, 10, 0xED3D85).setOrigin(0.5)
          this.backToMenuBtnText = this.add.text(performanceWindowX, performanceWindowY + (performanceWindowHeight / 2) - 50, 'Voltar ao Menu', { fontFamily: 'Cooper Black', fontSize: '18px', fill: '#FFFFFF', padding: 20 }).setOrigin(0.5).setDepth(3);
         
-         this.backToMenuBtn.setInteractive();
+        this.backToMenuBtn.setInteractive();
 
         this.backToMenuBtn.on('pointerdown', () => {
             this.select2.play();
+            this.hidePerformanceGraph();
             this.clearCode();
             localStorage.removeItem('dadosJogador');
             this.backToMenuBtn.destroy();
@@ -1285,7 +1380,6 @@ class BeginnerQuiz extends Phaser.Scene {
             this.backToMenuBtnText.setStyle({ fill: '#ffffff' });
         });
 
-         this.performanceWindow.add(this.performanceTitle);
          this.performanceWindow.add(this.backToMenuBtn);
          this.performanceWindow.add(this.backToMenuBtnText);
 
