@@ -1,66 +1,53 @@
-// Gera e armazena um identificador único para o dispositivo do jogador
-let deviceId = localStorage.getItem('deviceId')
-if (!deviceId) {
-    deviceId = crypto.randomUUID()
-    localStorage.setItem('deviceId', deviceId)
-}
-
-// Função para carregar os dados do jogador
-async function loadPlayerData() {
-    // Busca os dados do jogador com o deviceId no Supabase
-    const { data, error } = await supabase
-        .from('players')
-        .select('*')
-        .eq('device_id', deviceId)
-        .single()
-
-    if (error) {
-        console.error('Erro ao carregar dados do jogador:', error)
-        return null
-    }
-
-    return data
-}
-
-// Função para criar um novo registro de jogador
-async function createNewPlayer(playerName) {
-    const { data, error } = await supabase
-        .from('players')
-        .insert([{ id: deviceId, name: playerName, difficulty_level: 'fácil', device_id: deviceId, progress: 0, score: 0 }])
-
-    if (error) {
-        console.error('Erro ao criar novo jogador:', error)
-    } else {
-        console.log('Novo jogador criado com sucesso:', data)
-    }
-}
-
 class Load1 extends Phaser.Scene {
     constructor() {
         super({ key: 'Load1', active: false });
     }
 
-    init() {
+    async init(data) {
         this.width = this.game.canvas.width;
         this.height = this.game.canvas.height;
         this.loaded = false;
-    }
 
-    async preload() {
-        this.load.plugin('rexroundrectangleplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexroundrectangleplugin.min.js', true);
-        this.load.plugin('rexsliderplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexsliderplugin.min.js', true);
-        this.load.audio('menuMusic', './assets/sfx/war.mp3');
-        this.load.image('bgMenu', './assets/img/bgMenu.jpg');
-        this.load.image('configWindow', './assets/img/configWindow.png');
-        this.load.image('musicOn', './assets/img/music-on.png');
-        this.load.image('musicOff', './assets/img/music-off.png');
-        this.load.image('supportBtn1', './assets/img/support-button1.png');
-        this.load.image('supportBtn2', './assets/img/support-button2.png');
-        this.load.image('backBtn1', './assets/img/back-button1.png');
-        this.load.image('backBtn2', './assets/img/back-button2.png');
-        this.load.audio('hover', './assets/sfx/interface.mp3');
-        this.load.audio('select', './assets/sfx/decide.mp3');
-        this.load.audio('select2', './assets/sfx/select2.mp3');
+        // Acessando o supabase da configuração global do Phaser
+        const supabase = data.supabase;
+
+        console.log(supabase)
+
+        // Verifique se o supabase está disponível
+        if (!supabase) {
+            console.error('Supabase não está disponível na cena Load1');
+            return;
+        }
+
+        // Função para carregar os dados do jogador
+        async function loadPlayerData() {
+            // Busca os dados do jogador com o deviceId no Supabase
+            const { data, error } = await supabase
+                .from('players')
+                .select('*')
+                .eq('device_id', deviceId)
+                .single()
+
+            if (error) {
+                console.error('Erro ao carregar dados do jogador:', error)
+                return null
+            }
+
+            return data
+        }
+
+        // Função para criar um novo registro de jogador
+        async function createNewPlayer(playerName) {
+            const { data, error } = await supabase
+                .from('players')
+                .insert([{ id: deviceId, name: playerName, difficulty_level: 'fácil', device_id: deviceId, progress: 0, score: 0 }])
+
+            if (error) {
+                console.error('Erro ao criar novo jogador:', error)
+            } else {
+                console.log('Novo jogador criado com sucesso:', data)
+            }
+        }
 
         // Carrega os dados do jogador
         const playerData = await loadPlayerData()
@@ -82,6 +69,32 @@ class Load1 extends Phaser.Scene {
             }
         }
 
+    }
+
+    async preload() {
+        this.load.plugin('rexroundrectangleplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexroundrectangleplugin.min.js', true);
+        this.load.plugin('rexsliderplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexsliderplugin.min.js', true);
+        this.load.audio('menuMusic', './assets/sfx/war.mp3');
+        this.load.image('bgMenu', './assets/img/bgMenu.jpg');
+        this.load.image('configWindow', './assets/img/configWindow.png');
+        this.load.image('musicOn', './assets/img/music-on.png');
+        this.load.image('musicOff', './assets/img/music-off.png');
+        this.load.image('supportBtn1', './assets/img/support-button1.png');
+        this.load.image('supportBtn2', './assets/img/support-button2.png');
+        this.load.image('backBtn1', './assets/img/back-button1.png');
+        this.load.image('backBtn2', './assets/img/back-button2.png');
+        this.load.audio('hover', './assets/sfx/interface.mp3');
+        this.load.audio('select', './assets/sfx/decide.mp3');
+        this.load.audio('select2', './assets/sfx/select2.mp3');
+
+        // Gera e armazena um identificador único para o dispositivo do jogador
+        let deviceId = localStorage.getItem('deviceId')
+        if (!deviceId) {
+            deviceId = crypto.randomUUID()
+            localStorage.setItem('deviceId', deviceId)
+        }
+
+        
         if (!localStorage.getItem("musicVolume")) {
             localStorage.setItem("musicVolume", 0.5);
         }
