@@ -1,7 +1,6 @@
+import { createClient } from '@supabase/supabase-js'
 
-const SUPABASE_URL = "https://sgtrfxckpxamifxnskrq.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNndHJmeGNrcHhhbWlmeG5za3JxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA1Njc5MDgsImV4cCI6MjA0NjE0MzkwOH0.FkxTZGRoKarheQooEHJBzn3EjRqA-ak7Yp3lgq9s7Ow";
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabase = createClient('https://sgtrfxckpxamifxnskrq.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNndHJmeGNrcHhhbWlmeG5za3JxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA1Njc5MDgsImV4cCI6MjA0NjE0MzkwOH0.FkxTZGRoKarheQooEHJBzn3EjRqA-ak7Yp3lgq9s7Ow')
 
 var config = {
     type: Phaser.AUTO,
@@ -13,7 +12,7 @@ var config = {
     },
     scene: [Load1, Home, Load2, Play, BeginnerQuiz],
     // Passando o supabase para todas as cenas por meio de `data`
-    data: { supabase: supabase }
+    data: supabase
 };
 
 // Inicializa o jogo
