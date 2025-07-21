@@ -1,228 +1,372 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projetos</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/styles.css" />
     <script src="./js/scripts.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <header id="header">
-        <div id="header-content">
-            <div id="logo-container">
-                <div id="logo-img-cont">
-                    <img src="./img/foto-perfil.jpg" alt="Logo" id="logo-img">
-                </div>
-                <span id="logo-sub">
-                    Lucas Alcântara
-                </span>
-            </div>
-            <div id="header-main">
-                <ul id="navbar">
-                    <li><a href="#home" class="header-link">Home</a></li>
-                    <li><a href="#about" class="header-link">Sobre</a></li>
-                    <li><a href="#projects" class="header-link">Projetos</a></li>
-                    <li><a href="#contact" class="header-link">Contato</a></li>
-                </ul>
-                <div id="burguer-cont">
-                    <img src="https://d33wubrfki0l68.cloudfront.net/79e75114856ae61628d2ad26504e3ff4ab2c71b6/f06a4/assets/svg/ham-menu.svg" alt="hamburger menu" class="burguer-menu">
-                    <img src="https://d33wubrfki0l68.cloudfront.net/de2a681c8ca1630b29949b3a34bf158a686a0554/6a0ec/assets/svg/ham-menu-close.svg" alt="hamburger menu close" class="burguer-menu-close display-none">
-                </div>
-            </div>
-        </div>
-        <div class="small-menu">
-            <div class="small-menu-content">
-              <ul class="small-menu-links">
-                <li class="small-menu-link">
-                  <a href="#home"> Home </a>
-                </li>
-      
-                <li class="small-menu-link">
-                  <a href="#about"> Sobre </a>
-                </li>
-      
-                <li class="small-menu-link">
-                  <a href="#projects"> Projetos </a>
-                </li>
-      
-                <li class="small-menu-link">
-                  <a href="#contact"> Contato </a>
-                </li>
-              </ul>
-            </div>
+      <div id="header-content">
+        <div id="logo-container">
+          <div id="logo-img-cont">
+            <img src="./img/foto-perfil.jpg" alt="Logo" id="logo-img" />
           </div>
+          <span id="logo-sub"> Lucas Alcântara </span>
+        </div>
+        <div id="header-main">
+          <ul id="navbar">
+            <li><a href="#home" class="header-link">Home</a></li>
+            <li><a href="#about" class="header-link">Sobre</a></li>
+            <li><a href="#projects" class="header-link">Projetos</a></li>
+            <li><a href="#contact" class="header-link">Contato</a></li>
+          </ul>
+          <div id="burguer-cont">
+            <img
+              src="https://d33wubrfki0l68.cloudfront.net/79e75114856ae61628d2ad26504e3ff4ab2c71b6/f06a4/assets/svg/ham-menu.svg"
+              alt="hamburger menu"
+              class="burguer-menu"
+            />
+            <img
+              src="https://d33wubrfki0l68.cloudfront.net/de2a681c8ca1630b29949b3a34bf158a686a0554/6a0ec/assets/svg/ham-menu-close.svg"
+              alt="hamburger menu close"
+              class="burguer-menu-close display-none"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="small-menu">
+        <div class="small-menu-content">
+          <ul class="small-menu-links">
+            <li class="small-menu-link">
+              <a href="#home"> Home </a>
+            </li>
+
+            <li class="small-menu-link">
+              <a href="#about"> Sobre </a>
+            </li>
+
+            <li class="small-menu-link">
+              <a href="#projects"> Projetos </a>
+            </li>
+
+            <li class="small-menu-link">
+              <a href="#contact"> Contato </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </header>
     <div id="botton-header">
-        <h1>Desenvolvedor Web Front-End</h1>
+      <h1>Desenvolvedor Web Front-End</h1>
     </div>
 
     <section id="home" class="home">
-        <div id="home-content">
-            <h1 id="home-title">Bem-vindo(a)!</h1>
-            <div id="home-info">
-                <p class="info">Aqui você conhecerá um entusiasta da web apaixonado por criar experiências incríveis.</p>
-            </div>
-            <div id="home-btn">
-                <a href="#projects" class="btn">Projetos</a>
-            </div>
+      <div id="home-content">
+        <h1 id="home-title">Bem-vindo(a)!</h1>
+        <div id="home-info">
+          <p class="info">
+            Aqui você conhecerá um entusiasta da web apaixonado por criar
+            experiências incríveis.
+          </p>
         </div>
-        <div id="home-mouse-scroll-cont">
-            <div id="mouse">
-            </div>
+        <div id="home-btn">
+          <a href="#projects" class="btn">Projetos</a>
         </div>
-
+      </div>
+      <div id="home-mouse-scroll-cont">
+        <div id="mouse"></div>
+      </div>
     </section>
 
     <section id="about" class="about second-pad">
-        <div class="about-container">
-            <h2 class="about-cont-title">Sobre</h2>
-            <p class="description">Me chamo Lucas Alcântara, tenho 27 anos e estou concluindo este ano uma graduação em Ciência da Computação e cursos especializados em Desenvolvimento Web voltado para o Front-End. Estou muito empolgado e aberto a oportunidades de trabalho onde eu possa contribuir, aprender e crescer. Se você tiver uma oportunidade que corresponda às minhas competências, entre em contato por favor.</p>
-            <a class="btn btn-average" href="#contact">Contato</a>
+      <div class="about-container">
+        <h2 class="about-cont-title">Sobre</h2>
+        <p class="description">
+          Me chamo Lucas Alcântara, tenho 27 anos e estou concluindo este ano
+          uma graduação em Ciência da Computação e cursos especializados em
+          Desenvolvimento Web voltado para o Front-End. Estou muito empolgado e
+          aberto a oportunidades de trabalho onde eu possa contribuir, aprender
+          e crescer. Se você tiver uma oportunidade que corresponda às minhas
+          competências, entre em contato por favor.
+        </p>
+        <a class="btn btn-average" href="#contact">Contato</a>
+      </div>
+      <div class="about-container">
+        <h3 class="subtitle">Habilidades</h3>
+        <div class="skills">
+          <div class="skill"><img src="./img/logo-html.png" alt="HTML" /></div>
+          <div class="skill"><img src="./img/logo-css.png" alt="CSS" /></div>
+          <div class="skill">
+            <img src="./img/logo-js.png" alt="Javascript" />
+          </div>
+          <div class="skill">
+            <img src="./img/logo-bootstrap.png" alt="Bootstrap" />
+          </div>
+          <div class="skill">
+            <img src="./img/logo-angular.png" alt="Angular" />
+          </div>
+          <div class="skill">
+            <img src="./img/logo-react.png" alt="React" />
+          </div>
+          <div class="skill">
+            <img src="./img/logo-python.png" alt="Python" />
+          </div>
+          <div class="skill"><img src="./img/logo-git.png" alt="Git" /></div>
+          <div class="skill">
+            <img src="./img/logo-github.png" alt="Github" />
+          </div>
         </div>
-        <div class="about-container">
-            <h3 class="subtitle">Habilidades</h3>
-            <div class="skills">
-                <div class="skill"><img src="./img/logo-html.png" alt="HTML"></div>
-                <div class="skill"><img src="./img/logo-css.png" alt="CSS"></div>
-                <div class="skill"><img src="./img/logo-js.png" alt="Javascript"></div>
-                <div class="skill"><img src="./img/logo-bootstrap.png" alt="Bootstrap"></div>
-                <div class="skill"><img src="./img/logo-angular.png" alt="Angular"></div>
-                <div class="skill"><img src="./img/logo-react.png" alt="React"></div>
-                <div class="skill"><img src="./img/logo-python.png" alt="Python"></div>
-                <div class="skill"><img src="./img/logo-git.png" alt="Git"></div>
-                <div class="skill"><img src="./img/logo-github.png" alt="Github"></div>
-            </div>
-        </div>
+      </div>
     </section>
 
     <section id="projects" class="projects second-pad">
-        <div class="projects-container">
-            <h2 class="project-cont-title">Projetos</h2>
-            <p class="description">Aqui você encontrará alguns dos projetos pessoais e acadêmicos que criei. Espero que goste!</p>
-            <div class="projects">
-               
-                <div class="projects-row">
-                    <div class="projects-img-cont"><img src="./img/to-do.png" alt="Projeto 1"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Gerenciador de Tarefas</h3>
-                        <p class="project-description">Um aplicativo simples para criar, editar e excluir tarefas. Ideal para ajudar no gerenciamento de atividades diárias, oferecendo uma interface amigável e intuitiva para organizar suas tarefas. Também conta com funções de pesquisa e filtragem.</p>
-                        <a class="btn btn-average" href="./to-do-avançado/to-do-avançado.html" target="_blank">Link do Projeto</a>
-                    </div>
-                </div>
-
-                <div class="projects-row">
-                  <div class="projects-img-cont"><img src="./gerador-de-senhas/img/gerador-de-senhas.png" alt="Projeto 2"></div>
-                  <div class="project-content">
-                      <h3 class="project-title">Gerenciador de senhas</h3>
-                      <p class="project-description">Um aplicativo para gerar e copiar senhas com opção de incluir, ou não, símbolos, números ou letras.</p>
-                      <a class="btn btn-average" href="./gerador-de-senhas/index.html" target="_blank">Link do Projeto</a>
-                  </div>
-              </div>
-
-              <div class="projects-row">
-                <div class="projects-img-cont"><img src="./img/dev-notes.png" alt="Projeto 3"></div>
-                <div class="project-content">
-                    <h3 class="project-title">DevNotes</h3>
-                    <p class="project-description">Um bloco de notas digital, onde é possível criar, editar e fixar anotações de forma eficiente. Ideal para armazenar códigos, snippets, e informações úteis durante o desenvolvimento de projetos.Também é possível realizar o download das notas em um arquivo CSV.</p>
-                    <a class="btn btn-average" href="./dev-notes/index.html" target="_blank">Link do Projeto</a>
-                </div>
+      <div class="projects-container">
+        <h2 class="project-cont-title">Projetos</h2>
+        <p class="description">
+          Aqui você encontrará alguns dos projetos pessoais e acadêmicos que
+          criei. Espero que goste!
+        </p>
+        <div class="projects">
+          <div class="projects-row">
+            <div class="projects-img-cont">
+              <img src="./img/to-do.png" alt="Projeto 1" />
             </div>
-
-                <div class="projects-row">
-                    <div class="projects-img-cont"><img src="./img/gerador-qr-code.png" alt="Projeto 4"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Gerador de QR Code</h3>
-                        <p class="project-description">Um aplicativo simples que gera QR Codes a partir de URLs ou textos inseridos pelo usuário. Útil para compartilhar informações de forma rápida e prática.</p>
-                        <a class="btn btn-average" href="./gerador-qr-code/geradorqrcode.html" target="_blank">Link do Projeto</a>
-                    </div>
-                </div>
-
-                <div class="projects-row">
-                    <div class="projects-img-cont"><img src="./img/pokedex.png" alt="Projeto 5"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Pokedex API</h3>
-                        <p class="project-description">Um aplicativo que utiliza uma API para fornecer informações detalhadas sobre diversos Pokémon. Permite que os usuários visualizem dados como fotos, nomes e tipos de diferentes Pokémon, ideal para fãs e entusiastas.</p>
-                        <a class="btn btn-average" href="./pokedex/pokedex.html" target="_blank">Link do Projeto</a>
-                    </div>
-                </div>
-
-                <div class="projects-row">
-                  <div class="projects-img-cont"><img src="./img/zack-coding.png" alt="Projeto 6"></div>
-                  <div class="project-content">
-                      <h3 class="project-title">Jogo Educativo de Programação (TCC)</h3>
-                      <p class="project-description">Um jogo projetado para ensinar conceitos básicos de programação de forma interativa. Através de desafios e níveis, os usuários aprendem lógica de programação enquanto se divertem. Ele conta com um sistema de dicas inteligente que detecta o erro e fornece uma dica correspondente.</p>
-                      <a class="btn btn-average" href="./zack-coding/index.html" target="_blank">Link do Projeto</a>
-                  </div>
-              </div>
-
-                <div class="projects-row">
-                  <div class="projects-img-cont"><img src="./img/cardapio.png" alt="Projeto 7"></div>
-                  <div class="project-content">
-                      <h3 class="project-title">Cardápio de Restaurante em React</h3>
-                      <p class="project-description">Um aplicativo de cardápio digital desenvolvido em React, permitindo que restaurantes exibam seus menus de forma moderna e interativa. Inclui funcionalidades para visualizar pratos, ingredientes e preços, proporcionando uma experiência agradável para os clientes.</p>
-                      <a class="btn btn-average" href="./restaurante/index.html" target="_blank">Em breve</a>
-                  </div>
-              </div>
-
+            <div class="project-content">
+              <h3 class="project-title">Gerenciador de Tarefas</h3>
+              <p class="project-description">
+                Um aplicativo simples para criar, editar e excluir tarefas.
+                Ideal para ajudar no gerenciamento de atividades diárias,
+                oferecendo uma interface amigável e intuitiva para organizar
+                suas tarefas. Também conta com funções de pesquisa e filtragem.
+              </p>
+              <a
+                class="btn btn-average"
+                href="./to-do-avançado/to-do-avançado.html"
+                target="_blank"
+                >Link do Projeto</a
+              >
             </div>
+          </div>
+
+          <div class="projects-row">
+            <div class="projects-img-cont">
+              <img
+                src="./gerador-de-senhas/img/gerador-de-senhas.png"
+                alt="Projeto 2"
+              />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Gerenciador de senhas</h3>
+              <p class="project-description">
+                Um aplicativo para gerar e copiar senhas com opção de incluir,
+                ou não, símbolos, números ou letras.
+              </p>
+              <a
+                class="btn btn-average"
+                href="./gerador-de-senhas/index.html"
+                target="_blank"
+                >Link do Projeto</a
+              >
+            </div>
+          </div>
+
+          <div class="projects-row">
+            <div class="projects-img-cont">
+              <img src="./img/dev-notes.png" alt="Projeto 3" />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">DevNotes</h3>
+              <p class="project-description">
+                Um bloco de notas digital, onde é possível criar, editar e fixar
+                anotações de forma eficiente. Ideal para armazenar códigos,
+                snippets, e informações úteis durante o desenvolvimento de
+                projetos.Também é possível realizar o download das notas em um
+                arquivo CSV.
+              </p>
+              <a
+                class="btn btn-average"
+                href="./dev-notes/index.html"
+                target="_blank"
+                >Link do Projeto</a
+              >
+            </div>
+          </div>
+
+          <div class="projects-row">
+            <div class="projects-img-cont">
+              <img src="./img/gerador-qr-code.png" alt="Projeto 4" />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Gerador de QR Code</h3>
+              <p class="project-description">
+                Um aplicativo simples que gera QR Codes a partir de URLs ou
+                textos inseridos pelo usuário. Útil para compartilhar
+                informações de forma rápida e prática.
+              </p>
+              <a
+                class="btn btn-average"
+                href="./gerador-qr-code/geradorqrcode.html"
+                target="_blank"
+                >Link do Projeto</a
+              >
+            </div>
+          </div>
+
+          <div class="projects-row">
+            <div class="projects-img-cont">
+              <img src="./img/spotify-clone.png" alt="Projeto 5" />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Réplica Spotify Web</h3>
+              <p class="project-description">
+                Este projeto recria a página pública do Spotify, com foco em
+                responsividade, design moderno e interatividade. Desenvolvido
+                com React e Tailwind CSS, o layout apresenta seções como
+                carrosséis de playlists, destaques musicais e navegação visual,
+                simulando a experiência do site oficial sem funcionalidades de
+                login ou reprodução musical.
+              </p>
+              <a
+                class="btn btn-average"
+                href="./spotify-clone/index.html"
+                target="_blank"
+                >Link do Projeto</a
+              >
+            </div>
+          </div>
+
+          <div class="projects-row">
+            <div class="projects-img-cont">
+              <img src="./img/pokedex.png" alt="Projeto 6" />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Pokedex API</h3>
+              <p class="project-description">
+                Um aplicativo que utiliza uma API para fornecer informações
+                detalhadas sobre diversos Pokémon. Permite que os usuários
+                visualizem dados como fotos, nomes e tipos de diferentes
+                Pokémon, ideal para fãs e entusiastas.
+              </p>
+              <a
+                class="btn btn-average"
+                href="./pokedex/pokedex.html"
+                target="_blank"
+                >Link do Projeto</a
+              >
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <section id="contact" class="contact second-pad dynamic-bg">
-        <div class="contact-container">
-          <h2 class="contact-cont-title">Contato</h2>
-          <p class="description">O formulário abaixo serve apenas para questões de estética.</p>
-          <div class="contact-form-container">
-            <form action='#' class='contact-form' method='post'><input type='hidden' name='form-name' value='form 1' />
-              <div class="contact-form-field">
-                <label class="contact-form-label" for="name">Nome</label>
-                <input required placeholder="Digite seu nome..." type="text" class="contact-form-input" name="name"
-                  id="name" />
-              </div>
-              <div class="contact-form-field">
-                <label class="contact-form-label" for="email">Email</label>
-                <input required placeholder="Digite seu email..." type="email" class="contact-form-input" name="email"
-                  id="email" />
-              </div>
-              <div class="contact-form-field">
-                <label class="contact-form-label" for="message">Mensagem</label>
-                <textarea required cols="30" rows="10" class="contact-form-input" placeholder="Digite sua mensagem..."
-                  name="message" id="message"></textarea>
-              </div>
-              <button type="submit" class="btn contact-btn">
-                Enviar
-              </button>
-            </form>
-          </div>
+      <div class="contact-container">
+        <h2 class="contact-cont-title">Contato</h2>
+        <p class="description">
+          O formulário abaixo serve apenas para questões de estética.
+        </p>
+        <div class="contact-form-container">
+          <form action="#" class="contact-form" method="post">
+            <input type="hidden" name="form-name" value="form 1" />
+            <div class="contact-form-field">
+              <label class="contact-form-label" for="name">Nome</label>
+              <input
+                required
+                placeholder="Digite seu nome..."
+                type="text"
+                class="contact-form-input"
+                name="name"
+                id="name"
+              />
+            </div>
+            <div class="contact-form-field">
+              <label class="contact-form-label" for="email">Email</label>
+              <input
+                required
+                placeholder="Digite seu email..."
+                type="email"
+                class="contact-form-input"
+                name="email"
+                id="email"
+              />
+            </div>
+            <div class="contact-form-field">
+              <label class="contact-form-label" for="message">Mensagem</label>
+              <textarea
+                required
+                cols="30"
+                rows="10"
+                class="contact-form-input"
+                placeholder="Digite sua mensagem..."
+                name="message"
+                id="message"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn contact-btn">Enviar</button>
+          </form>
         </div>
-      </section>
-    
-      <footer class="footer">
-        <ul class="social-icon">
-            <li class="social-icon__item"><a class="social-icon__link" href="https://github.com/lucasalc25" target="_blank">
-                <ion-icon name="logo-github"></ion-icon>
-              </a></li>
-            <li class="social-icon__item"><a class="social-icon__link" href="https://www.linkedin.com/in/lucas-alc%C3%A2ntara-holanda-673114213/" target="_blank">
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </a></li>
-            <li class="social-icon__item"><a class="social-icon__link" href="#">
-                <ion-icon name="logo-twitter"></ion-icon>
-              </a></li>
-            <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/lucasalc25/" target="_blank">
-                <ion-icon name="logo-instagram"></ion-icon>
-              </a></li>
-          </ul>
-          <ul class="menu">
-            <li class="menu__item"><a class="menu__link" href="#home">Home</a></li>
-            <li class="menu__item"><a class="menu__link" href="#about">Sobre</a></li>
-            <li class="menu__item"><a class="menu__link" href="#projects">Projetos</a></li>
-            <li class="menu__item"><a class="menu__link" href="#contact">Contato</a></li>
-      
-          </ul>
-          <p>&copy;2024 Lucas Alcântara | Todos os direitos reservados</p>
-        </footer>
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <ul class="social-icon">
+        <li class="social-icon__item">
+          <a
+            class="social-icon__link"
+            href="https://github.com/lucasalc25"
+            target="_blank"
+          >
+            <ion-icon name="logo-github"></ion-icon>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a
+            class="social-icon__link"
+            href="https://www.linkedin.com/in/lucas-alc%C3%A2ntara-holanda-673114213/"
+            target="_blank"
+          >
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a
+            class="social-icon__link"
+            href="https://www.instagram.com/#"
+            target="_blank"
+          >
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
+      </ul>
+      <ul class="menu">
+        <li class="menu__item"><a class="menu__link" href="#home">Home</a></li>
+        <li class="menu__item">
+          <a class="menu__link" href="#about">Sobre</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="#projects">Projetos</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="#contact">Contato</a>
+        </li>
+      </ul>
+      <p>&copy;2024 Lucas Alcântara | Todos os direitos reservados</p>
+    </footer>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
 </html>
